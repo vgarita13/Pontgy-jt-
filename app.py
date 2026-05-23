@@ -1,11 +1,5 @@
 import streamlit as st
 import pandas as pd
-import json
-import os
-import time
-from github import Github
-import base64
-import requests
 from supabase import create_client
 
 # ------------------------
@@ -58,7 +52,6 @@ FAJL = "pontok.json"
 # GITHUB BEÁLLÍTÁSOK
 # ------------------------
 
-GITHUB_TOKEN = st.secrets["GITHUB_TOKEN"]
 SUPABASE_URL = st.secrets["SUPABASE_URL"]
 SUPABASE_KEY = st.secrets["SUPABASE_KEY"]
 
