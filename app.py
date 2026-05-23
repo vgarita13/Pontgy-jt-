@@ -75,29 +75,17 @@ JSON_FAJL = "pontok.json"
 # ELSŐ BETÖLTÉS
 # ------------------------
 
-if "pontok" not in st.session_state:
+try:
 
-    try:
+    RAW_JSON_URL = f"https://raw.githubusercontent.com/vgarita13/Pontgy-jt-/main/pontok.json?t={time.time()}"
 
-        RAW_JSON_URL = f"https://raw.githubusercontent.com/vgarita13/Pontgy-jt-/main/pontok.json?t={time.time()}"
+    response = requests.get(RAW_JSON_URL)
 
-        response = requests.get(RAW_JSON_URL)
+    if response.status_code == 200:
 
-        if response.status_code == 200:
+        st.session_state.pontok = response.json()
 
-            st.session_state.pontok = response.json()
-
-        else:
-
-            st.session_state.pontok = {
-                "Anna – Bence": 13,
-                "Luca – Marci": 17,
-                "Petra – Dávid": 8,
-                "Nóri – Ádám": 19,
-                "Zsófi – Balázs": 11
-            }
-
-    except:
+    else:
 
         st.session_state.pontok = {
             "Anna – Bence": 13,
@@ -106,6 +94,16 @@ if "pontok" not in st.session_state:
             "Nóri – Ádám": 19,
             "Zsófi – Balázs": 11
         }
+
+except:
+
+    st.session_state.pontok = {
+        "Anna – Bence": 13,
+        "Luca – Marci": 17,
+        "Petra – Dávid": 8,
+        "Nóri – Ádám": 19,
+        "Zsófi – Balázs": 11
+    }
 
 # ------------------------
 # MENTÉS
