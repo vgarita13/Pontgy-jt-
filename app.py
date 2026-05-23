@@ -6,6 +6,7 @@ import time
 from github import Github
 import base64
 import requests
+from supabase import create_client
 
 # ------------------------
 # OLDAL BEÁLLÍTÁSOK
@@ -58,6 +59,13 @@ FAJL = "pontok.json"
 # ------------------------
 
 GITHUB_TOKEN = st.secrets["GITHUB_TOKEN"]
+SUPABASE_URL = st.secrets["SUPABASE_URL"]
+SUPABASE_KEY = st.secrets["SUPABASE_KEY"]
+
+supabase = create_client(
+    SUPABASE_URL,
+    SUPABASE_KEY
+)
 
 REPO_NEV = "vgarita13/Pontgy-jt-"
 
@@ -75,36 +83,21 @@ JSON_FAJL = "pontok.json"
 # ELSŐ BETÖLTÉS
 # ------------------------
 
-if "pontok" not in st.session_state or not admin:
+if "pontok" not in st.session_state:
+
     try:
 
-        RAW_JSON_URL = f"https://raw.githubusercontent.com/vgarita13/Pontgy-jt-/main/pontok.json?t={time.time()}"
+        adatbazis = supabase.table("pontok").select("*").execute()
 
-        response = requests.get(RAW_JSON_URL)
+        st.session_state.pontok = {}
 
-        if response.status_code == 200:
+        for sor in adatbazis.data:
 
-            st.session_state.pontok = response.json()
-
-        else:
-
-            st.session_state.pontok = {
-                "Anna – Bence": 13,
-                "Luca – Marci": 17,
-                "Petra – Dávid": 8,
-                "Nóri – Ádám": 19,
-                "Zsófi – Balázs": 11
-            }
+            st.session_state.pontok[sor["paros"]] = sor["pont"]
 
     except:
 
-        st.session_state.pontok = {
-            "Anna – Bence": 13,
-            "Luca – Marci": 17,
-            "Petra – Dávid": 8,
-            "Nóri – Ádám": 19,
-            "Zsófi – Balázs": 11
-        }
+        st.session_state.pontok = {}
 
 # ------------------------
 # MENTÉS
@@ -112,50 +105,25 @@ if "pontok" not in st.session_state or not admin:
 
 def mentes():
 
-    # ------------------------
-    # LOKÁLIS JSON MENTÉS
-    # ------------------------
+    try:
 
-    with open(FAJL, "w", encoding="utf-8") as f:
+        # régi adatok törlése
+        supabase.table("pontok").delete().neq("id", 0).execute()
 
-        json.dump(
-            st.session_state.pontok,
-            f,
-            ensure_ascii=False,
-            indent=4
-        )
+        # új adatok feltöltése
+        for paros, pont in st.session_state.pontok.items():
 
-    # ------------------------
-    # GITHUB SZINKRON
-    # ------------------------
+            supabase.table("pontok").insert({
+                "paros": paros,
+                "pont": pont
+            }).execute()
 
-try:
+        st.toast("☁️ Supabase szinkron kész!")
 
-    g = Github(GITHUB_TOKEN)
+    except Exception as e:
 
-    repo = g.get_repo(REPO_NEV)
-
-    uj_tartalom = json.dumps(
-        st.session_state.pontok,
-        ensure_ascii=False,
-        indent=4
-    )
-
-    file = repo.get_contents(JSON_FAJL)
-
-    repo.update_file(
-        path=JSON_FAJL,
-        message="Automatikus pontfrissítés",
-        content=uj_tartalom,
-        sha=file.sha
-    )
-
-    st.toast("☁️ GitHub szinkron kész!")
-
-except Exception as e:
-
-    st.error(f"GitHub hiba: {e}")
-
+        st.error(f"Supabase hiba: {e}")
+ 
 if admin:
 
     st.markdown("## 🎮 Pontozás")
