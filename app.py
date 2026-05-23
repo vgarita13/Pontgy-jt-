@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import json
 import os
+import time
 from github import Github
 import base64
 import requests
@@ -78,7 +79,7 @@ if "pontok" not in st.session_state:
 
     try:
 
-        RAW_JSON_URL = "https://raw.githubusercontent.com/vgarita13/Pontgy-jt-/main/pontok.json"
+        RAW_JSON_URL = f"https://raw.githubusercontent.com/vgarita13/Pontgy-jt-/main/pontok.json?t={time.time()}"
 
         response = requests.get(RAW_JSON_URL)
 
