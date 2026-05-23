@@ -129,30 +129,32 @@ def mentes():
     # GITHUB SZINKRON
     # ------------------------
 
-    try:
+try:
 
-        g = Github(GITHUB_TOKEN)
+    g = Github(GITHUB_TOKEN)
 
-        repo = g.get_repo(REPO_NEV)
+    repo = g.get_repo(REPO_NEV)
 
-        with open(FAJL, "r", encoding="utf-8") as f:
+    uj_tartalom = json.dumps(
+        st.session_state.pontok,
+        ensure_ascii=False,
+        indent=4
+    )
 
-            tartalom = f.read()
+    file = repo.get_contents(JSON_FAJL)
 
-        file = repo.get_contents(JSON_FAJL)
+    repo.update_file(
+        path=JSON_FAJL,
+        message="Automatikus pontfrissítés",
+        content=uj_tartalom,
+        sha=file.sha
+    )
 
-        repo.update_file(
-            JSON_FAJL,
-            "Automatikus pontfrissítés",
-            tartalom,
-            file.sha
-        )
+    st.toast("☁️ GitHub szinkron kész!")
 
-        st.toast("☁️ GitHub szinkron kész!")
+except Exception as e:
 
-    except Exception as e:
-
-        st.error(f"GitHub hiba: {e}")
+    st.error(f"GitHub hiba: {e}")
 
 if admin:
 
