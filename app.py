@@ -1,5 +1,10 @@
 import streamlit as st
 import pandas as pd
+import json
+import os
+from github import Github
+import base64
+import requests
 
 # ------------------------
 # OLDAL BEÁLLÍTÁSOK
@@ -45,14 +50,77 @@ st.sidebar.markdown("---")
 # PÁROSOK ADATAI
 # ------------------------
 
+FAJL = "pontok.json"
+
+# ------------------------
+# GITHUB BEÁLLÍTÁSOK
+# ------------------------
+
+GITHUB_TOKEN = st.secrets["GITHUB_TOKEN"]
+
+REPO_NEV = "vgarita13/Pontgy-jt-"
+
+JSON_FAJL = "pontok.json"
+
+# ------------------------
+# BETÖLTÉS
+# ------------------------
+
+# ------------------------
+# GITHUB RAW JSON URL
+# ------------------------
+
+# ------------------------
+# ELSŐ BETÖLTÉS
+# ------------------------
+
 if "pontok" not in st.session_state:
-    st.session_state.pontok = {
-        "Anna – Bence": 13,
-        "Luca – Marci": 17,
-        "Petra – Dávid": 8,
-        "Nóri – Ádám": 19,
-        "Zsófi – Balázs": 11
-    }
+
+    try:
+
+        RAW_JSON_URL = "https://raw.githubusercontent.com/vgarita13/Pontgy-jt-/main/pontok.json"
+
+        response = requests.get(RAW_JSON_URL)
+
+        if response.status_code == 200:
+
+            st.session_state.pontok = response.json()
+
+        else:
+
+            st.session_state.pontok = {
+                "Anna – Bence": 13,
+                "Luca – Marci": 17,
+                "Petra – Dávid": 8,
+                "Nóri – Ádám": 19,
+                "Zsófi – Balázs": 11
+            }
+
+    except:
+
+        st.session_state.pontok = {
+            "Anna – Bence": 13,
+            "Luca – Marci": 17,
+            "Petra – Dávid": 8,
+            "Nóri – Ádám": 19,
+            "Zsófi – Balázs": 11
+        }
+
+# ------------------------
+# MENTÉS
+# ------------------------
+
+def mentes():
+
+    with open(FAJL, "w", encoding="utf-8") as f:
+
+        json.dump(
+            st.session_state.pontok,
+            f,
+            ensure_ascii=False,
+            indent=4
+        )
+
 
 if admin:
 
@@ -65,6 +133,7 @@ if admin:
 
         if uj_paros != "":
             st.session_state.pontok[uj_paros] = 0
+            mentes()
 
     for paros in list(st.session_state.pontok.keys()):
 
@@ -86,10 +155,12 @@ if admin:
         with col3:
             if st.button("➕", key=f"plus_{paros}"):
                 st.session_state.pontok[paros] += pont_valtozas
+                mentes()
 
         with col4:
             if st.button("➖", key=f"minus_{paros}"):
                 st.session_state.pontok[paros] -= pont_valtozas
+                mentes()
 
         with col5:
             st.write(f"⭐ {st.session_state.pontok[paros]} pont")
@@ -98,6 +169,7 @@ if admin:
             if st.button("❌", key=f"delete_{paros}"):
 
                 del st.session_state.pontok[paros]
+                mentes()
 
                 st.rerun()
 
@@ -220,8 +292,8 @@ st.sidebar.markdown("- 0% → 1")
 st.markdown("---")
 st.markdown("### ✏️ Pontok frissítése")
 st.markdown(
-    "A program elején lévő `adatok` listában tudod módosítani a pontszámokat."
+    "A pontokat a tanári módban tudod szerkeszteni."
 )
 
 st.markdown("### 🚀 Indítás")
-st.code("streamlit run app.py")
+st.code("python -m streamlit run app.py")
