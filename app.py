@@ -112,6 +112,10 @@ if "pontok" not in st.session_state:
 
 def mentes():
 
+    # ------------------------
+    # LOKÁLIS JSON MENTÉS
+    # ------------------------
+
     with open(FAJL, "w", encoding="utf-8") as f:
 
         json.dump(
@@ -121,6 +125,34 @@ def mentes():
             indent=4
         )
 
+    # ------------------------
+    # GITHUB SZINKRON
+    # ------------------------
+
+    try:
+
+        g = Github(GITHUB_TOKEN)
+
+        repo = g.get_repo(REPO_NEV)
+
+        with open(FAJL, "r", encoding="utf-8") as f:
+
+            tartalom = f.read()
+
+        file = repo.get_contents(JSON_FAJL)
+
+        repo.update_file(
+            JSON_FAJL,
+            "Automatikus pontfrissítés",
+            tartalom,
+            file.sha
+        )
+
+        st.toast("☁️ GitHub szinkron kész!")
+
+    except Exception as e:
+
+        st.error(f"GitHub hiba: {e}")
 
 if admin:
 
