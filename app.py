@@ -263,6 +263,9 @@ st.dataframe(
 # LEGJOBB PÁROS
 # ------------------------
 
+if df.empty:
+    st.warning("Még nincs adat.")
+    st.stop()
 elso = df.iloc[0]
 
 st.success(
