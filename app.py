@@ -56,7 +56,7 @@ section[data-testid="stSidebar"] {
 
 section[data-testid="stSidebar"] .block-container {
 
-    padding-top: 1rem;
+    padding-top: 0rem;
 
     padding-left: 1rem;
 
