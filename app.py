@@ -433,7 +433,26 @@ supabase.table("maxpont").upsert({
     "max_pont": max_pont
 }).execute()
 
-st.sidebar.markdown("---")
+st.sidebar.markdown("""
+<div style="
+    text-align:center;
+    margin-bottom:20px;
+">
+
+<img src="https://i.imgur.com/6VBx3io.png"
+width="90">
+
+<div style="
+    color:white;
+    font-size:28px;
+    font-weight:800;
+    margin-top:10px;
+">
+Diák Pontverseny
+</div>
+
+</div>
+""", unsafe_allow_html=True)
 
 # ------------------------
 # PÁROSOK ADATAI
