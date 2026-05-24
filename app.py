@@ -254,6 +254,10 @@ thead tr th {
 
     color: #3c2b7a !important;
 }
+            
+    section[data-testid="stSidebar"] * {
+        color: white;
+}
 
 /* =========================
    ELVÁLASZTÓ
