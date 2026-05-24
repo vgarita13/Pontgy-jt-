@@ -418,7 +418,7 @@ st.markdown("""
 
 .logo-title{
 
-    font-size:48px;
+    font-size:32px;
     font-weight:900;
 
     line-height:0.95;
