@@ -913,7 +913,7 @@ styled_df = (
     .apply(szinezes, axis=1)
     .format({
         "Progress": lambda x: x
-    }, escape="html")
+    }, escape=None)
 )
 
 st.markdown(
