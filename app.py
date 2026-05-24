@@ -730,6 +730,68 @@ df["Százalék"] = round(
 )
 
 # ------------------------
+# JEGY SZÁMÍTÁS
+# ------------------------
+
+def jegy(szazalek):
+
+    if szazalek >= 80:
+        return 5
+
+    elif szazalek >= 60:
+        return 4
+
+    elif szazalek >= 40:
+        return 3
+
+    elif szazalek >= 25:
+        return 2
+
+    else:
+        return 1
+
+
+df["Jegy"] = df["Százalék"].apply(jegy)
+
+# ------------------------
+# SOR SZÍNEZÉS
+# ------------------------
+
+def szinezes(sor):
+
+    jegy = sor["Jegy"]
+
+    if jegy == 5:
+
+        return [
+            "background-color: #DDF4E4; color: #2E4A38"
+        ] * len(sor)
+
+    elif jegy == 4:
+
+        return [
+            "background-color: #E9E2FF; color: #43386B"
+        ] * len(sor)
+
+    elif jegy == 3:
+
+        return [
+            "background-color: #FFF3D6; color: #6B562A"
+        ] * len(sor)
+
+    elif jegy == 2:
+
+        return [
+            "background-color: #FFDCC8; color: #7A4426"
+        ] * len(sor)
+
+    else:
+
+        return [
+            "background-color: #FFD9E8; color: #7A3452"
+        ] * len(sor)
+
+# ------------------------
 # TÁBLÁZAT
 # ------------------------
 
