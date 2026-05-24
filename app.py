@@ -33,12 +33,29 @@ admin = jelszo == "titok123"
 # ------------------------
 # MAXIMUM PONT
 # ------------------------
+try:
+
+    beallitas = supabase.table("maxpont").select("*").execute()
+
+    if beallitas.data:
+        alap_max_pont = beallitas.data[0]["max_pont"]
+    else:
+        alap_max_pont = 0
+
+except:
+
+    alap_max_pont = 0
 
 max_pont = st.sidebar.number_input(
     "Maximum elérhető pont",
     min_value=1,
-    value=20
+    value=alap_max_pont
 )
+
+supabase.table("maxpont").upsert({
+    "id": 1,
+    "max_pont": max_pont
+}).execute()
 
 st.sidebar.markdown("---")
 
