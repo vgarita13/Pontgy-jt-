@@ -117,17 +117,26 @@ section[data-testid="stSidebar"] span {
 
     align-items:center;
 
-    gap:14px;
+    gap:16px;
 
     margin-bottom:22px;
 
     font-size:20px;
 
     font-weight:600;
+}
+
+/* SZÖVEG FIX SZÉLESSÉG */
+
+.grade-list li span:last-child{
+
+    display:inline-block;
+
+    width:110px;
+
+    text-align:left;
 
     font-variant-numeric: tabular-nums;
-
-    min-width:160px;
 }
 /* színes pöttyök */
 
