@@ -442,6 +442,23 @@ st.markdown("""
 /* =========================
    RÓZSASZÍN VONAL
 ========================= */
+            
+.hero-logo{
+
+    width:230px;
+
+    display:block;
+
+    margin:auto;
+
+    pointer-events:none;
+
+    user-select:none;
+
+    -webkit-user-drag:none;
+
+    filter: drop-shadow(0 0 22px rgba(255,170,255,0.35));
+}
 
 
 </style>
@@ -453,17 +470,12 @@ st.markdown("""
 
 st.sidebar.markdown("""
 <div class="logo-wrap">
-""", unsafe_allow_html=True)
 
-st.sidebar.image(
-    "trophy.png",
-    width=170
-)
+    <img src="trophy.png" class="hero-logo">
 
-st.sidebar.markdown("""
-<div class="logo-title">
-    Diák<br>Pontverseny
-</div>
+    <div class="logo-title">
+        Diák<br>Pontverseny
+    </div>
 
 </div>
 """, unsafe_allow_html=True)
