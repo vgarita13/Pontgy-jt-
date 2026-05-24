@@ -907,17 +907,103 @@ def szinezes(sor):
 # STYLED DATAFRAME
 # ------------------------
 
-styled_df = (
-    df.drop(columns=["Százalék"])
-    .style
-    .apply(szinezes, axis=1)
-    .format({
-        "Progress": lambda x: x
-    }, escape=None)
-)
+tabla_html = """
+
+<table style="
+    width:100%;
+    border-collapse:collapse;
+    overflow:hidden;
+    border-radius:22px;
+    background:white;
+">
+
+<tr style="
+    background:#f3e9ff;
+    color:#7b57d1;
+">
+    <th style="padding:16px;">Hely</th>
+    <th>Páros</th>
+    <th>Pont</th>
+    <th>Jegy</th>
+    <th>Progress</th>
+</tr>
+
+"""
+
+for _, sor in df.iterrows():
+
+    if sor["Jegy"] == 5:
+        hatter = "#EEFDF2"
+
+    elif sor["Jegy"] == 4:
+        hatter = "#F3EEFF"
+
+    elif sor["Jegy"] == 3:
+        hatter = "#FFF8E8"
+
+    elif sor["Jegy"] == 2:
+        hatter = "#FFF0E7"
+
+    else:
+        hatter = "#FFEAF3"
+
+    tabla_html += f"""
+
+    <tr style="background:{hatter};">
+
+        <td style="padding:16px;">
+            {sor["Hely"]}
+        </td>
+
+        <td>{sor["Páros"]}</td>
+
+        <td>{sor["Pont"]}</td>
+
+        <td>{sor["Jegy"]}</td>
+
+        <td>
+
+            <div style="
+                display:flex;
+                align-items:center;
+                gap:12px;
+            ">
+
+                <div style="
+                    width:140px;
+                    height:10px;
+                    background:#ece6f5;
+                    border-radius:999px;
+                    overflow:hidden;
+                ">
+
+                    <div style="
+                        width:{sor["Százalék"]}%;
+                        height:100%;
+                        background:{progress_szin(sor["Jegy"])};
+                        border-radius:999px;
+                    "></div>
+
+                </div>
+
+                <span style="
+                    font-weight:700;
+                    color:#3d2a75;
+                ">
+                    {sor["Százalék"]:.2f}%
+                </span>
+
+            </div>
+
+        </td>
+
+    </tr>
+    """
+
+tabla_html += "</table>"
 
 st.markdown(
-    styled_df.to_html(escape=False),
+    tabla_html,
     unsafe_allow_html=True
 )
 
