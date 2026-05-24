@@ -140,11 +140,19 @@ section[data-testid="stSidebar"] span {
 
 .dot {
 
-    width: 16px;
+    width:16px;
 
-    height: 16px;
+    height:16px;
 
-    border-radius: 50%;
+    min-width:16px;
+
+    min-height:16px;
+
+    border-radius:50%;
+
+    display:inline-block;
+
+    flex-shrink:0;
 }
 
 .green { background: #c7f0d8; }
