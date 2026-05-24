@@ -439,8 +439,10 @@ st.sidebar.markdown("""
     margin-bottom:20px;
 ">
 
-<img src="https://cdn-icons-png.flaticon.com/512/2583/2583344.png"
-width="90">
+st.sidebar.image(
+    r"D:\++Tananyag Témakörönként\Programozás (10. osztály)\1-3 óra (Alapok)\Pontgyűjtő verseny\Képek\trophy.png",
+    width=90
+)
 
 <div style="
     color:white;
