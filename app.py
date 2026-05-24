@@ -184,9 +184,14 @@ section[data-testid="stSidebar"] span {
 ========================= */
 
 h1 {
+
     color: #24145c !important;
+
     font-weight: 800 !important;
+
     font-size: 48px !important;
+
+    margin-top:0px !important;
 }
 
 h2, h3 {
