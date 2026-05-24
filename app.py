@@ -533,6 +533,53 @@ st.info(f"📌 Eddig maximum {max_pont} pontot lehetett elérni.")
 # TÁBLÁZAT
 # ------------------------
 
+# ------------------------
+# TÁBLÁZAT SZÍNEZÉS
+# ------------------------
+
+def szinezes(sor):
+
+    jegy = sor["Jegy"]
+
+    if jegy == 5:
+
+        return [
+            "background-color: #DDF4E4; color: #2E4A38"
+        ] * len(sor)
+
+    elif jegy == 4:
+
+        return [
+            "background-color: #E9E2FF; color: #43386B"
+        ] * len(sor)
+
+    elif jegy == 3:
+
+        return [
+            "background-color: #FFF3D6; color: #6B562A"
+        ] * len(sor)
+
+    elif jegy == 2:
+
+        return [
+            "background-color: #FFDCC8; color: #7A4426"
+        ] * len(sor)
+
+    else:
+
+        return [
+            "background-color: #FFD9E8; color: #7A3452"
+        ] * len(sor)
+
+# ------------------------
+# STYLED DATAFRAME
+# ------------------------
+
+styled_df = df.style.apply(
+    szinezes,
+    axis=1
+)
+
 st.dataframe(
     df.style.apply(szinezes, axis=1),
     use_container_width=True,
