@@ -439,7 +439,7 @@ st.sidebar.markdown("""
     margin-bottom:20px;
 ">
 
-<img src="https://i.imgur.com/6VBx3io.png"
+<img src="https://cdn-icons-png.flaticon.com/512/2583/2583344.png"
 width="90">
 
 <div style="
