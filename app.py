@@ -451,29 +451,6 @@ supabase.table("maxpont").upsert({
     "max_pont": max_pont
 }).execute()
 
-st.sidebar.markdown("""
-<div style="
-    text-align:center;
-    margin-bottom:20px;
-">
-
-st.sidebar.image(
-    r"D:\++Tananyag Témakörönként\Programozás (10. osztály)\1-3 óra (Alapok)\Pontgyűjtő verseny\Képek\ChatGPT Image 2026. máj. 24. 12_55_06.png",
-    width=90
-)
-
-<div style="
-    color:white;
-    font-size:28px;
-    font-weight:800;
-    margin-top:10px;
-">
-Diák Pontverseny
-</div>
-
-</div>
-""", unsafe_allow_html=True)
-
 # ------------------------
 # PÁROSOK ADATAI
 # ------------------------
