@@ -458,6 +458,16 @@ button[title="View fullscreen"]{
 [data-testid="stImage"] button{
     display:none !important;
 }
+            
+/* STREAMLIT IMAGE TOOLBAR */
+
+[data-testid="stImageToolbar"]{
+    display:none !important;
+}
+
+[data-testid="stImageToolbarButton"]{
+    display:none !important;
+}
 
 
 /* =========================
