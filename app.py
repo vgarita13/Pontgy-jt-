@@ -852,15 +852,11 @@ st.sidebar.markdown("""
 
 <ul class="grade-list">
 
-<li><span class="dot green"></span>80% → 5</li>
-
-<li><span class="dot purple"></span>60% → 4</li>
-
-<li><span class="dot yellow"></span>40% → 3</li>
-
-<li><span class="dot orange"></span>25% → 2</li>
-
-<li><span class="dot red"></span>0% → 1</li>
+<li><span class="dot green"></span><span>80% → 5</span></li>
+<li><span class="dot purple"></span><span>60% → 4</span></li>
+<li><span class="dot yellow"></span><span>40% → 3</span></li>
+<li><span class="dot orange"></span><span>25% → 2</span></li>
+<li><span class="dot red"></span><span>0% → 1</span></li>
 
 </ul>
 """, unsafe_allow_html=True)
