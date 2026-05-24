@@ -17,6 +17,118 @@ st.set_page_config(
     layout="wide"
 )
 
+st.markdown("""
+<style>
+
+/* ===== HÁTTÉR ===== */
+
+.stApp {
+    background: linear-gradient(
+        135deg,
+        #f6f1ff 0%,
+        #efe7ff 45%,
+        #f9f4ff 100%
+    );
+    color: #2d1b69;
+}
+
+/* ===== SIDEBAR ===== */
+
+section[data-testid="stSidebar"] {
+    background: linear-gradient(
+        180deg,
+        #8f6bff 0%,
+        #7b5cff 100%
+    );
+    border-right: 3px solid #cdb8ff;
+}
+
+section[data-testid="stSidebar"] * {
+    color: white !important;
+}
+
+/* ===== CÍMEK ===== */
+
+h1, h2, h3 {
+    color: #2d1b69 !important;
+    font-weight: 700;
+}
+
+/* ===== GOMBOK ===== */
+
+.stButton > button {
+    background: linear-gradient(
+        135deg,
+        #b388ff,
+        #e6b3ff
+    );
+    color: white;
+    border: none;
+    border-radius: 14px;
+    padding: 0.4rem 1rem;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.stButton > button:hover {
+    transform: scale(1.03);
+    background: linear-gradient(
+        135deg,
+        #9f70ff,
+        #d98cff
+    );
+}
+
+/* ===== INPUTOK ===== */
+
+.stTextInput input,
+.stNumberInput input {
+    border-radius: 12px !important;
+    border: 2px solid #dccbff !important;
+    background-color: white !important;
+    color: #2d1b69 !important;
+}
+
+/* ===== TÁBLÁZAT ===== */
+
+[data-testid="stDataFrame"] {
+    border-radius: 18px;
+    overflow: hidden;
+    border: 2px solid #e5d8ff;
+}
+
+/* ===== INFO BOX ===== */
+
+.stAlert {
+    border-radius: 14px;
+    background-color: #efe5ff !important;
+    color: #6b42c7 !important;
+}
+
+/* ===== ELVÁLASZTÓ ===== */
+
+hr {
+    border-color: #ccb8ff;
+}
+
+/* ===== SIDEBAR BLOKK ===== */
+
+[data-testid="stSidebar"] .stNumberInput,
+[data-testid="stSidebar"] .stTextInput {
+    background: rgba(255,255,255,0.12);
+    padding: 10px;
+    border-radius: 16px;
+}
+
+/* ===== PLUSZ-MÍNUSZ GOMB ===== */
+
+button[kind="secondary"] {
+    border-radius: 12px !important;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
 # ------------------------
 # CÍM
 # ------------------------
@@ -171,8 +283,18 @@ if admin:
 
         with col3:
             if st.button("➕", key=f"plus_{paros}"):
-                st.session_state.pontok[paros] += pont_valtozas
-                mentes()
+                uj_pont = st.session_state.pontok[paros] + pont_valtozas
+
+                if uj_pont <= max_pont:
+
+                    st.session_state.pontok[paros] = uj_pont
+
+                    mentes()
+
+                else:
+
+                    st.warning("⚠️ Elérték a maximum pontot!")
+                
 
         with col4:
             if st.button("➖", key=f"minus_{paros}"):
