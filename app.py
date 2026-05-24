@@ -785,13 +785,7 @@ def jegy(szazalek):
 
 df["Jegy"] = df["Százalék"].apply(jegy)
 
-df["Progress"] = df.apply(
-    lambda sor: progress_bar(
-        sor["Százalék"],
-        progress_szin(sor["Jegy"])
-    ),
-    axis=1
-)
+
 
 def progress_szin(jegy):
 
@@ -810,7 +804,6 @@ def progress_szin(jegy):
     else:
         return "#FF7FB0"
 
-
 df["Progress"] = df.apply(
     lambda sor: progress_bar(
         sor["Százalék"],
@@ -818,6 +811,7 @@ df["Progress"] = df.apply(
     ),
     axis=1
 )
+
 
 # ------------------------
 # RANGSOR
