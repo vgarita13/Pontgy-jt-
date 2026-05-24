@@ -114,7 +114,7 @@ section[data-testid="stSidebar"] span {
 }
 .grade-percent{
 
-    width:42px;
+    width:32px;
 
     margin-left:10px;
 
