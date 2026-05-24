@@ -492,6 +492,7 @@ st.markdown("""
     letter-spacing:-0.5px;
 
     margin-top:12px;
+    margin-bottom:12px;
 
     text-shadow:
         0 4px 18px rgba(0,0,0,0.22);
