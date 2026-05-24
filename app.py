@@ -51,7 +51,14 @@ section[data-testid="stSidebar"] {
 
 /* sidebar összes szöveg */
 
-section[data-testid="stSidebar"] * {
+/* sidebar szövegek */
+
+section[data-testid="stSidebar"] label,
+section[data-testid="stSidebar"] p,
+section[data-testid="stSidebar"] span,
+section[data-testid="stSidebar"] h1,
+section[data-testid="stSidebar"] h2,
+section[data-testid="stSidebar"] h3 {
     color: white !important;
 }
 
@@ -216,8 +223,11 @@ thead tr th {
    SIDEBAR BLOKK
 ========================= */
 
+/* sidebar input card */
+
 [data-testid="stSidebar"] .stNumberInput,
 [data-testid="stSidebar"] .stTextInput {
+
     background: rgba(255,255,255,0.08);
 
     padding: 14px;
@@ -225,6 +235,23 @@ thead tr th {
     border-radius: 18px;
 
     margin-bottom: 12px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* belső input */
+
+[data-testid="stSidebar"] input {
+
+    background: rgba(255,255,255,0.92) !important;
+
+    border: none !important;
+
+    box-shadow: none !important;
+
+    border-radius: 14px !important;
+
+    color: #3c2b7a !important;
 }
 
 /* =========================
