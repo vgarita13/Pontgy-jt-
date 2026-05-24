@@ -913,7 +913,7 @@ styled_df = (
     .apply(szinezes, axis=1)
 )
 
-st.write(
+st.markdown(
     styled_df.to_html(escape=False),
     unsafe_allow_html=True
 )
