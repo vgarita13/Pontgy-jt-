@@ -418,14 +418,18 @@ st.markdown("""
 
 .logo-title{
 
-    font-size:32px;
+    width:100%;
+
+    font-size:34px;
     font-weight:900;
 
-    line-height:0.95;
+    line-height:1.05;
 
     color:white;
 
     letter-spacing:-1px;
+
+    word-break:keep-all;
 
     text-shadow:
         0 6px 22px rgba(0,0,0,0.25);
