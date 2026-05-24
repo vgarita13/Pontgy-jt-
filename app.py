@@ -400,21 +400,25 @@ hr {
 
 st.markdown("""
 <style>
+            
+/* =========================
+   LOGO WRAP
+========================= */
 
-/* HERO BLOKK */
-
-.sidebar-hero{
+.logo-wrap{
     text-align:center;
-    padding-top:20px;
-    padding-bottom:28px;
+    padding-top:25px;
+    padding-bottom:30px;
 }
 
 
-/* CÍM */
+/* =========================
+   LOGO CÍM
+========================= */
 
-.sidebar-hero .hero-title{
+.logo-title{
 
-    font-size:46px;
+    font-size:48px;
     font-weight:900;
 
     line-height:0.95;
@@ -424,15 +428,19 @@ st.markdown("""
     letter-spacing:-1px;
 
     text-shadow:
-        0 6px 20px rgba(0,0,0,0.25);
+        0 6px 22px rgba(0,0,0,0.25);
+
+    margin-top:8px;
 }
 
 
-/* RÓZSASZÍN VONAL */
+/* =========================
+   RÓZSASZÍN VONAL
+========================= */
 
-.sidebar-hero .hero-divider{
+.hero-divider{
 
-    width:130px;
+    width:140px;
     height:5px;
 
     border-radius:999px;
@@ -441,8 +449,8 @@ st.markdown("""
 
     background: linear-gradient(
         90deg,
-        #ff9de1,
-        #c8b6ff
+        #ff8fd8,
+        #d8b4ff
     );
 }
 
@@ -453,10 +461,24 @@ st.markdown("""
 # HERO
 # =========================
 
+st.sidebar.markdown("""
+<div class="logo-wrap">
+""", unsafe_allow_html=True)
+
 st.sidebar.image(
     "trophy.png",
-    width=110
+    width=170
 )
+
+st.sidebar.markdown("""
+<div class="logo-title">
+    Diák<br>Pontverseny
+</div>
+
+<div class="hero-divider"></div>
+
+</div>
+""", unsafe_allow_html=True)
 
 
 # ------------------------
