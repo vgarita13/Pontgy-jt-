@@ -20,110 +20,236 @@ st.set_page_config(
 st.markdown("""
 <style>
 
-/* ===== HÁTTÉR ===== */
+/* =========================
+   HÁTTÉR
+========================= */
 
 .stApp {
     background: linear-gradient(
         135deg,
-        #f6f1ff 0%,
-        #efe7ff 45%,
-        #f9f4ff 100%
+        #f7f2ff 0%,
+        #f1e9ff 45%,
+        #faf7ff 100%
     );
     color: #2d1b69;
 }
 
-/* ===== SIDEBAR ===== */
+/* =========================
+   SIDEBAR
+========================= */
 
 section[data-testid="stSidebar"] {
     background: linear-gradient(
         180deg,
-        #8f6bff 0%,
-        #7b5cff 100%
+        #6d56d6 0%,
+        #7d64e8 45%,
+        #8b72f2 100%
     );
-    border-right: 3px solid #cdb8ff;
+    border-right: 2px solid rgba(255,255,255,0.15);
+    box-shadow: 4px 0 25px rgba(120, 90, 255, 0.25);
 }
+
+/* sidebar összes szöveg */
 
 section[data-testid="stSidebar"] * {
     color: white !important;
 }
 
-/* ===== CÍMEK ===== */
+/* =========================
+   CÍMEK
+========================= */
 
-h1, h2, h3 {
-    color: #2d1b69 !important;
-    font-weight: 700;
+h1 {
+    color: #24145c !important;
+    font-weight: 800 !important;
+    font-size: 48px !important;
 }
 
-/* ===== GOMBOK ===== */
+h2, h3 {
+    color: #35207a !important;
+    font-weight: 700 !important;
+}
+
+/* pink underline */
+
+h2::after {
+    content: "";
+    display: block;
+    width: 90px;
+    height: 4px;
+    border-radius: 20px;
+    margin-top: 8px;
+    background: linear-gradient(
+        90deg,
+        #ff7adf,
+        #c68cff
+    );
+}
+
+/* =========================
+   KÁRTYÁK
+========================= */
+
+div[data-testid="stVerticalBlock"] > div:has(.element-container) {
+    border-radius: 24px;
+}
+
+/* =========================
+   INPUTOK
+========================= */
+
+.stTextInput input,
+.stNumberInput input {
+    background: rgba(255,255,255,0.9) !important;
+    border: 2px solid #e4d8ff !important;
+    border-radius: 14px !important;
+    color: #2d1b69 !important;
+    padding: 0.5rem !important;
+}
+
+/* focus glow */
+
+.stTextInput input:focus,
+.stNumberInput input:focus {
+    border: 2px solid #c68cff !important;
+    box-shadow: 0 0 12px rgba(198,140,255,0.35) !important;
+}
+
+/* =========================
+   GOMBOK
+========================= */
 
 .stButton > button {
     background: linear-gradient(
         135deg,
-        #b388ff,
-        #e6b3ff
-    );
-    color: white;
-    border: none;
-    border-radius: 14px;
-    padding: 0.4rem 1rem;
-    font-weight: 600;
-    transition: 0.2s;
+        #b07cff,
+        #ea8cff
+    ) !important;
+
+    color: white !important;
+
+    border: none !important;
+
+    border-radius: 14px !important;
+
+    font-weight: 700 !important;
+
+    transition: 0.25s !important;
+
+    box-shadow: 0 4px 15px rgba(176,124,255,0.25);
 }
+
+/* hover */
 
 .stButton > button:hover {
-    transform: scale(1.03);
-    background: linear-gradient(
-        135deg,
-        #9f70ff,
-        #d98cff
-    );
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(176,124,255,0.35);
 }
 
-/* ===== INPUTOK ===== */
-
-.stTextInput input,
-.stNumberInput input {
-    border-radius: 12px !important;
-    border: 2px solid #dccbff !important;
-    background-color: white !important;
-    color: #2d1b69 !important;
-}
-
-/* ===== TÁBLÁZAT ===== */
-
-[data-testid="stDataFrame"] {
-    border-radius: 18px;
-    overflow: hidden;
-    border: 2px solid #e5d8ff;
-}
-
-/* ===== INFO BOX ===== */
-
-.stAlert {
-    border-radius: 14px;
-    background-color: #efe5ff !important;
-    color: #6b42c7 !important;
-}
-
-/* ===== ELVÁLASZTÓ ===== */
-
-hr {
-    border-color: #ccb8ff;
-}
-
-/* ===== SIDEBAR BLOKK ===== */
-
-[data-testid="stSidebar"] .stNumberInput,
-[data-testid="stSidebar"] .stTextInput {
-    background: rgba(255,255,255,0.12);
-    padding: 10px;
-    border-radius: 16px;
-}
-
-/* ===== PLUSZ-MÍNUSZ GOMB ===== */
+/* =========================
+   PLUSZ / MÍNUSZ GOMBOK
+========================= */
 
 button[kind="secondary"] {
     border-radius: 12px !important;
+
+    border: 2px solid #e6d9ff !important;
+
+    background: white !important;
+
+    color: #9b5cff !important;
+
+    font-weight: 700 !important;
+}
+
+button[kind="secondary"]:hover {
+    background: #f7f0ff !important;
+}
+
+/* =========================
+   ALERT BOX
+========================= */
+
+.stAlert {
+    background: linear-gradient(
+        90deg,
+        #f4eaff,
+        #f9f4ff
+    ) !important;
+
+    border-radius: 18px !important;
+
+    border: 1px solid #e2d3ff !important;
+
+    color: #7a4fd4 !important;
+}
+
+/* =========================
+   TÁBLÁZAT
+========================= */
+
+[data-testid="stDataFrame"] {
+    border-radius: 24px !important;
+
+    overflow: hidden !important;
+
+    border: 2px solid #e7dcff !important;
+
+    background: rgba(255,255,255,0.8) !important;
+
+    box-shadow: 0 4px 20px rgba(180,140,255,0.12);
+}
+
+/* =========================
+   TÁBLÁZAT FEJLÉC
+========================= */
+
+thead tr th {
+    background: #f3e9ff !important;
+
+    color: #8a5ce6 !important;
+
+    font-weight: 700 !important;
+}
+
+/* =========================
+   SIDEBAR BLOKK
+========================= */
+
+[data-testid="stSidebar"] .stNumberInput,
+[data-testid="stSidebar"] .stTextInput {
+    background: rgba(255,255,255,0.08);
+
+    padding: 14px;
+
+    border-radius: 18px;
+
+    margin-bottom: 12px;
+}
+
+/* =========================
+   ELVÁLASZTÓ
+========================= */
+
+hr {
+    border-color: rgba(255,255,255,0.2) !important;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c68cff;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f3ecff;
 }
 
 </style>
