@@ -388,43 +388,92 @@ hr {
 </style>
 """, unsafe_allow_html=True)
 
-st.sidebar.image(
-    "trophy.png",
-    width=90
-)
+# =========================
+# HERO / FELSŐ RÉSZ
+# =========================
 
 st.sidebar.markdown("""
-<div style="
-    text-align:center;
-    padding-top:10px;
-    padding-bottom:20px;
-">
+<div class="sidebar-hero">
 
-<div style="
-    font-size:42px;
-    font-weight:900;
-    line-height:1.0;
-    color:white;
-    letter-spacing:-1px;
-    text-shadow: 0 4px 18px rgba(0,0,0,0.25);
-">
-Diák<br>Pontverseny
+    <div class="hero-icon">
+        <img src="trophy.png" alt="Kupa">
+    </div>
+
+    <div class="hero-title">
+        Diák<br>Pontverseny
+    </div>
+
+    <div class="hero-divider"></div>
+
 </div>
+""", unsafe_allow_html=True)
 
-<div style="
-    width:120px;
-    height:4px;
+
+# =========================
+# HERO CSS
+# =========================
+
+st.markdown("""
+<style>
+
+/* HERO BLOKK */
+
+.sidebar-hero{
+    text-align:center;
+    padding-top:20px;
+    padding-bottom:28px;
+}
+
+
+/* KUPA */
+
+.sidebar-hero .hero-icon img{
+    width:110px;
+    margin-bottom:14px;
+
+    filter: drop-shadow(
+        0 0 18px rgba(255,170,255,0.55)
+    );
+}
+
+
+/* CÍM */
+
+.sidebar-hero .hero-title{
+
+    font-size:46px;
+    font-weight:900;
+
+    line-height:0.95;
+
+    color:white;
+
+    letter-spacing:-1px;
+
+    text-shadow:
+        0 6px 20px rgba(0,0,0,0.25);
+}
+
+
+/* RÓZSASZÍN VONAL */
+
+.sidebar-hero .hero-divider{
+
+    width:130px;
+    height:5px;
+
     border-radius:999px;
-    margin:18px auto 0 auto;
+
+    margin:22px auto 0 auto;
+
     background: linear-gradient(
         90deg,
         #ff9de1,
         #c8b6ff
     );
-">
-</div>
+}
 
-</div>
+</style>
 """, unsafe_allow_html=True)
 
 # ------------------------
