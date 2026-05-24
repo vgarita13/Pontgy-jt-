@@ -415,7 +415,7 @@ st.markdown("""
 
     justify-content:center;
 
-    margin-top:5px;
+    margin-top:0px;
 
     margin-bottom:10px;
 }
