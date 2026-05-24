@@ -418,23 +418,24 @@ st.markdown("""
 
 .logo-title{
 
-    width:100%;
+    text-align:center;
 
-    font-size:34px;
-    font-weight:900;
+    font-size:28px;
 
-    line-height:1.05;
+    font-weight:800;
+
+    line-height:1.08;
 
     color:white;
 
-    letter-spacing:-1px;
-
-    word-break:keep-all;
+    letter-spacing:-0.5px;
 
     text-shadow:
-        0 6px 22px rgba(0,0,0,0.25);
+        0 4px 18px rgba(0,0,0,0.22);
 
-    margin-top:8px;
+    margin-top:18px;
+
+    margin-bottom:8px;
 }
 
 
@@ -442,21 +443,6 @@ st.markdown("""
    RÓZSASZÍN VONAL
 ========================= */
 
-.hero-divider{
-
-    width:140px;
-    height:5px;
-
-    border-radius:999px;
-
-    margin:22px auto 0 auto;
-
-    background: linear-gradient(
-        90deg,
-        #ff8fd8,
-        #d8b4ff
-    );
-}
 
 </style>
 """, unsafe_allow_html=True)
