@@ -465,8 +465,6 @@ st.sidebar.markdown("""
     Diák<br>Pontverseny
 </div>
 
-<div class="hero-divider"></div>
-
 </div>
 """, unsafe_allow_html=True)
 
