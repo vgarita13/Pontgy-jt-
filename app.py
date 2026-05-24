@@ -477,11 +477,6 @@ st.markdown("""
    RÓZSASZÍN VONAL
 ========================= */
             
-.logo-wrap{
-    text-align:center;
-    margin-top:50px;
-    margin-bottom:20px;
-}
 
 .logo-title{
 
