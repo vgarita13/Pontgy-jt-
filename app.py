@@ -442,7 +442,7 @@ st.markdown("""
 
     letter-spacing:-0.5px;
 
-    margin-top:0px;
+    margin-top:-30px;
 
     margin-bottom:0px;
 
