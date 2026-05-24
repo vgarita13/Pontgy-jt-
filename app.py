@@ -406,7 +406,7 @@ if admin:
                 min_value=1,
                 max_value=100,
                 value=1,
-                key=f"input_{paros}"
+                key=f"input_{paros}",
                 label_visibility="collapsed"
             )
 
