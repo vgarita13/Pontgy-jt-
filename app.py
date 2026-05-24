@@ -114,16 +114,16 @@ section[data-testid="stSidebar"] span {
 }
 .grade-percent{
 
-    width:52px;
+    width:42px;
 
-    text-align:left;
+    margin-left:10px;
 
     font-variant-numeric: tabular-nums;
 }
 
 .grade-arrow{
 
-    width:26px;
+    width:16px;
 
     text-align:center;
 }
