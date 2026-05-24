@@ -392,21 +392,6 @@ hr {
 # HERO / FELSŐ RÉSZ
 # =========================
 
-st.sidebar.markdown("""
-<div class="sidebar-hero">
-
-    <div class="hero-icon">
-        <img src="trophy.png" alt="Kupa">
-    </div>
-
-    <div class="hero-title">
-        Diák<br>Pontverseny
-    </div>
-
-    <div class="hero-divider"></div>
-
-</div>
-""", unsafe_allow_html=True)
 
 
 # =========================
