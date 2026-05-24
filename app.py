@@ -25,13 +25,14 @@ st.markdown("""
 ========================= */
 
 .stApp {
-    background: linear-gradient(
-        135deg,
-        #f7f2ff 0%,
-        #f1e9ff 45%,
-        #faf7ff 100%
+    background:
+        radial-gradient(
+            circle at top left,
+            #ffffff 0%,
+            #f7f0ff 30%,
+            #efe5ff 70%,
+            #f8f5ff 100%
     );
-    color: #2d1b69;
 }
 
 /* =========================
@@ -318,15 +319,21 @@ button[kind="secondary"]:hover {
 ========================= */
 
 [data-testid="stDataFrame"] {
-    border-radius: 24px !important;
+
+    border-radius: 28px !important;
 
     overflow: hidden !important;
 
-    border: 2px solid #e7dcff !important;
+    border: 2px solid rgba(255,170,255,0.35) !important;
 
-    background: rgba(255,255,255,0.8) !important;
+    background:
+        rgba(255,255,255,0.58) !important;
 
-    box-shadow: 0 4px 20px rgba(180,140,255,0.12);
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 10px 35px rgba(180,120,255,0.18),
+        0 0 0 1px rgba(255,255,255,0.25);
 }
 
 /* =========================
