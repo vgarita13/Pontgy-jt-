@@ -578,13 +578,6 @@ def szinezes(sor):
 # STYLED DATAFRAME
 # ------------------------
 
-styled_df = df.style.apply(
-    szinezes,
-    axis=1
-).format({
-    "Százalék": "{:.2f}"
-})
-
 styled_df = (
     df.style
     .apply(szinezes, axis=1)
@@ -594,7 +587,7 @@ styled_df = (
 )
 
 st.dataframe(
-    df.style.apply(szinezes, axis=1),
+    styled_df,
     use_container_width=True,
     height=500
 )
