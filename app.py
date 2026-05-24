@@ -104,34 +104,33 @@ section[data-testid="stSidebar"] span {
 
 /* jegyhatárok */
 
-.grade-list {
+.grade-list li{
 
-    list-style: none;
+    display:flex;
 
-    padding-left: 0;
+    align-items:center;
+
+    margin-bottom:18px;
 }
-
 .grade-percent{
 
-    min-width:52px;
+    width:52px;
+
+    text-align:left;
 
     font-variant-numeric: tabular-nums;
 }
 
 .grade-arrow{
 
-    display:inline-block;
-
-    width:28px;
+    width:26px;
 
     text-align:center;
 }
 
 .grade-number{
 
-    display:inline-block;
-
-    width:20px;
+    width:18px;
 
     text-align:left;
 }
