@@ -406,9 +406,18 @@ st.markdown("""
 ========================= */
 
 .logo-wrap{
-    text-align:center;
-    padding-top:25px;
-    padding-bottom:30px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin-top:10px;
+
+    margin-bottom:10px;
 }
 
 
@@ -420,22 +429,24 @@ st.markdown("""
 
     text-align:center;
 
-    font-size:28px;
+    width:100%;
 
-    font-weight:800;
+    font-size:30px;
 
-    line-height:1.08;
+    font-weight:900;
+
+    line-height:1.05;
 
     color:white;
 
     letter-spacing:-0.5px;
 
+    margin-top:2px;
+
+    margin-bottom:0px;
+
     text-shadow:
         0 4px 18px rgba(0,0,0,0.22);
-
-    margin-top:18px;
-
-    margin-bottom:8px;
 }
             
 /* LOGO KÉP */
