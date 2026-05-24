@@ -440,7 +440,7 @@ st.sidebar.markdown("""
 ">
 
 st.sidebar.image(
-    r"D:\++Tananyag Témakörönként\Programozás (10. osztály)\1-3 óra (Alapok)\Pontgyűjtő verseny\Képek\trophy.png",
+    r"D:\++Tananyag Témakörönként\Programozás (10. osztály)\1-3 óra (Alapok)\Pontgyűjtő verseny\Képek\ChatGPT Image 2026. máj. 24. 12_55_06.png",
     width=90
 )
 
