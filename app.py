@@ -39,41 +39,127 @@ st.markdown("""
 ========================= */
 
 section[data-testid="stSidebar"] {
+
     background: linear-gradient(
         180deg,
-        #6d56d6 0%,
-        #7d64e8 45%,
-        #8b72f2 100%
+        #5d49d8 0%,
+        #6f58eb 45%,
+        #8269f3 100%
     );
-    border-right: 2px solid rgba(255,255,255,0.15);
-    box-shadow: 4px 0 25px rgba(120, 90, 255, 0.25);
+
+    border-right: none;
+
+    box-shadow: 4px 0 30px rgba(95, 70, 255, 0.25);
+}
+
+/* sidebar belső padding */
+
+section[data-testid="stSidebar"] .block-container {
+
+    padding-top: 1.5rem;
+
+    padding-left: 1rem;
+
+    padding-right: 1rem;
 }
 
 /* sidebar szövegek */
 
-
 section[data-testid="stSidebar"] label,
 section[data-testid="stSidebar"] p,
-section[data-testid="stSidebar"] span,
+section[data-testid="stSidebar"] li,
 section[data-testid="stSidebar"] h1,
 section[data-testid="stSidebar"] h2,
-section[data-testid="stSidebar"] h3 {
+section[data-testid="stSidebar"] h3,
+section[data-testid="stSidebar"] span {
+
     color: white !important;
 }
 
-/* sidebar input */
+/* input doboz */
 
 [data-testid="stSidebar"] input {
 
-    background: rgba(255,255,255,0.95) !important;
+    background: rgba(255,255,255,0.96) !important;
 
-    border-radius: 14px !important;
+    border: none !important;
 
-    border: 2px solid rgba(255,255,255,0.25) !important;
+    border-radius: 18px !important;
 
     color: #3d2a75 !important;
 
     box-shadow: none !important;
+
+    padding: 12px !important;
+
+    font-size: 18px !important;
+}
+
+/* szem ikon */
+
+[data-testid="stSidebar"] svg {
+
+    color: #4b3b91 !important;
+}
+
+/* jegyhatárok */
+
+.grade-list {
+
+    list-style: none;
+
+    padding-left: 0;
+}
+
+.grade-list li {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 18px;
+
+    font-size: 20px;
+
+    font-weight: 600;
+}
+
+/* színes pöttyök */
+
+.dot {
+
+    width: 16px;
+
+    height: 16px;
+
+    border-radius: 50%;
+}
+
+.green { background: #c7f0d8; }
+
+.purple { background: #d9d0ff; }
+
+.yellow { background: #ffe7a3; }
+
+.orange { background: #ffd1a8; }
+
+.red { background: #ffb7cc; }
+
+/* rózsaszín vonal */
+
+.pink-line {
+
+    width: 80px;
+
+    height: 5px;
+
+    border-radius: 999px;
+
+    background: #ff9de1;
+
+    margin-bottom: 24px;
 }
 
 /* =========================
@@ -648,12 +734,25 @@ st.success(
 # OLDALSÁV INFORMÁCIÓ
 # ------------------------
 
-st.sidebar.markdown("## Jegyhatárok")
-st.sidebar.markdown("- 80% → 5")
-st.sidebar.markdown("- 60% → 4")
-st.sidebar.markdown("- 40% → 3")
-st.sidebar.markdown("- 25% → 2")
-st.sidebar.markdown("- 0% → 1")
+st.sidebar.markdown("""
+## Jegyhatárok
+
+<div class="pink-line"></div>
+
+<ul class="grade-list">
+
+<li><span class="dot green"></span>80% → 5</li>
+
+<li><span class="dot purple"></span>60% → 4</li>
+
+<li><span class="dot yellow"></span>40% → 3</li>
+
+<li><span class="dot orange"></span>25% → 2</li>
+
+<li><span class="dot red"></span>0% → 1</li>
+
+</ul>
+""", unsafe_allow_html=True)
 
 # ------------------------
 # FRISSÍTÉSI ÚTMUTATÓ
