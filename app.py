@@ -255,8 +255,16 @@ thead tr th {
     color: #3c2b7a !important;
 }
             
-    section[data-testid="stSidebar"] * {
-        color: white;
+/* sidebar szövegek */
+
+section[data-testid="stSidebar"] label,
+section[data-testid="stSidebar"] p,
+section[data-testid="stSidebar"] li,
+section[data-testid="stSidebar"] h1,
+section[data-testid="stSidebar"] h2,
+section[data-testid="stSidebar"] h3,
+section[data-testid="stSidebar"] span {
+    color: white !important;
 }
 
 /* =========================
