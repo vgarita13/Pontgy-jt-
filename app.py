@@ -449,25 +449,15 @@ st.markdown("""
     -webkit-user-drag: none !important;
 }
             
-/* KÉP TOOLBAR ELTÜNTETÉSE */
+/* =========================
+   STREAMLIT TOOLBAR ELREJTÉS
+========================= */
 
-/* STREAMLIT KÉP TOOLBAR REJTÉS */
-
-[data-testid="stImage"]{
-    position: relative;
-}
-
-[data-testid="stImage"] button{
-    visibility:hidden !important;
-    opacity:0 !important;
-    pointer-events:none !important;
-}
-
-[data-testid="stImage"] [data-testid="StyledFullScreenButton"]{
+[data-testid="stElementToolbar"]{
     display:none !important;
 }
 
-button[aria-label="View fullscreen"]{
+[data-testid="stElementToolbarButton"]{
     display:none !important;
 }
 
