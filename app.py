@@ -49,9 +49,8 @@ section[data-testid="stSidebar"] {
     box-shadow: 4px 0 25px rgba(120, 90, 255, 0.25);
 }
 
-/* sidebar összes szöveg */
-
 /* sidebar szövegek */
+
 
 section[data-testid="stSidebar"] label,
 section[data-testid="stSidebar"] p,
@@ -60,6 +59,21 @@ section[data-testid="stSidebar"] h1,
 section[data-testid="stSidebar"] h2,
 section[data-testid="stSidebar"] h3 {
     color: white !important;
+}
+
+/* sidebar input */
+
+[data-testid="stSidebar"] input {
+
+    background: rgba(255,255,255,0.95) !important;
+
+    border-radius: 14px !important;
+
+    border: 2px solid rgba(255,255,255,0.25) !important;
+
+    color: #3d2a75 !important;
+
+    box-shadow: none !important;
 }
 
 /* =========================
@@ -225,19 +239,6 @@ thead tr th {
 
 /* sidebar input card */
 
-[data-testid="stSidebar"] .stNumberInput,
-[data-testid="stSidebar"] .stTextInput {
-
-    background: rgba(255,255,255,0.08);
-
-    padding: 14px;
-
-    border-radius: 18px;
-
-    margin-bottom: 12px;
-
-    border: 1px solid rgba(255,255,255,0.08);
-}
 
 /* belső input */
 
