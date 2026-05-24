@@ -911,6 +911,9 @@ styled_df = (
     df.drop(columns=["Százalék"])
     .style
     .apply(szinezes, axis=1)
+    .format({
+        "Progress": lambda x: x
+    }, escape="html")
 )
 
 st.markdown(
