@@ -251,6 +251,13 @@ hr {
 ::-webkit-scrollbar-track {
     background: #f3ecff;
 }
+            
+/* mini +/- gombok eltüntetése */
+
+[data-testid="stNumberInputStepUp"],
+[data-testid="stNumberInputStepDown"] {
+    display: none !important;
+}
 
 </style>
 """, unsafe_allow_html=True)
@@ -259,7 +266,7 @@ hr {
 # CÍM
 # ------------------------
 
-st.title("🏆 Diák Pontverseny")
+st.title("🏆 Pontverseny")
 st.markdown("## Aktuális állás")
 
 # ------------------------
