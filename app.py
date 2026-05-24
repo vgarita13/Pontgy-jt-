@@ -444,7 +444,7 @@ st.markdown("""
 
     margin-top:-30px;
 
-    margin-bottom:12px;
+    margin-bottom:25px;
 
     text-shadow:
         0 4px 18px rgba(0,0,0,0.22);
