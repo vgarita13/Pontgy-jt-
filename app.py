@@ -389,7 +389,7 @@ hr {
 """, unsafe_allow_html=True)
 
 st.sidebar.image(
-    "D:/++Tananyag Témakörönként/Programozás (10. osztály)/1-3 óra (Alapok)/Pontgyűjtő verseny/Képek/ChatGPT Image 2026. máj. 24. 12_55_06.png",
+    "trophy.png",
     width=90
 )
 
