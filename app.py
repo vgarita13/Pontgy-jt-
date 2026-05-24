@@ -113,11 +113,7 @@ section[data-testid="stSidebar"] span {
 
 .grade-percent{
 
-    display:inline-block;
-
-    width:48px;
-
-    text-align:right;
+    min-width:52px;
 
     font-variant-numeric: tabular-nums;
 }
@@ -126,7 +122,7 @@ section[data-testid="stSidebar"] span {
 
     display:inline-block;
 
-    width:24px;
+    width:28px;
 
     text-align:center;
 }
