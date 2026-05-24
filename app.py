@@ -816,7 +816,6 @@ st.success(
 st.sidebar.markdown("""
 ## Jegyhatárok
 
-<div class="pink-line"></div>
 
 <ul class="grade-list">
 
