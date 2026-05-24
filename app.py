@@ -448,6 +448,12 @@ st.markdown("""
 
     -webkit-user-drag: none !important;
 }
+            
+/* KÉP TOOLBAR ELTÜNTETÉSE */
+
+button[title="View fullscreen"]{
+    display:none !important;
+}
 
 
 /* =========================
