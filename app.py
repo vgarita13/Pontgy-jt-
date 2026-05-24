@@ -582,7 +582,7 @@ styled_df = (
     df.style
     .apply(szinezes, axis=1)
     .format({
-        "Százalék": "{:.2f}"
+        "Százalék": "{:.2f}%"
     })
 )
 
@@ -591,7 +591,6 @@ st.dataframe(
     use_container_width=True,
     height=500
 )
-
 # ------------------------
 # LEGJOBB PÁROS
 # ------------------------
