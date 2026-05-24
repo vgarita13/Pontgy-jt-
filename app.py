@@ -415,9 +415,10 @@ st.markdown("""
 
     justify-content:center;
 
-    margin-top:0px;
+    margin-top: -60px;
 
     margin-bottom:10px;
+    padding-top:0px;
 }
 
 
