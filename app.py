@@ -48,7 +48,7 @@ except:
 
 max_pont = st.sidebar.number_input(
     "Maximum elérhető pont",
-    min_value=1,
+    min_value=0,
     value=alap_max_pont
 )
 
