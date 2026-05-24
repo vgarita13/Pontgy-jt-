@@ -395,14 +395,35 @@ st.sidebar.image(
 
 st.sidebar.markdown("""
 <div style="
-    color:white;
-    font-size:28px;
-    font-weight:800;
-    margin-top:-8px;
-    margin-bottom:20px;
     text-align:center;
+    padding-top:10px;
+    padding-bottom:20px;
 ">
-Diák Pontverseny
+
+<div style="
+    font-size:42px;
+    font-weight:900;
+    line-height:1.0;
+    color:white;
+    letter-spacing:-1px;
+    text-shadow: 0 4px 18px rgba(0,0,0,0.25);
+">
+Diák<br>Pontverseny
+</div>
+
+<div style="
+    width:120px;
+    height:4px;
+    border-radius:999px;
+    margin:18px auto 0 auto;
+    background: linear-gradient(
+        90deg,
+        #ff9de1,
+        #c8b6ff
+    );
+">
+</div>
+
 </div>
 """, unsafe_allow_html=True)
 
