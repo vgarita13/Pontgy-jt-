@@ -585,6 +585,14 @@ styled_df = df.style.apply(
     "Százalék": "{:.2f}"
 })
 
+styled_df = (
+    df.style
+    .apply(szinezes, axis=1)
+    .format({
+        "Százalék": "{:.2f}"
+    })
+)
+
 st.dataframe(
     df.style.apply(szinezes, axis=1),
     use_container_width=True,
