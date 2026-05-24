@@ -437,6 +437,17 @@ st.markdown("""
 
     margin-bottom:8px;
 }
+            
+/* LOGO KÉP */
+
+[data-testid="stSidebar"] img {
+
+    pointer-events: none !important;
+
+    user-select: none !important;
+
+    -webkit-user-drag: none !important;
+}
 
 
 /* =========================
