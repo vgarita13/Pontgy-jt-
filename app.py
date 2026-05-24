@@ -425,18 +425,6 @@ st.markdown("""
 }
 
 
-/* KUPA */
-
-.sidebar-hero .hero-icon img{
-    width:110px;
-    margin-bottom:14px;
-
-    filter: drop-shadow(
-        0 0 18px rgba(255,170,255,0.55)
-    );
-}
-
-
 /* CÍM */
 
 .sidebar-hero .hero-title{
@@ -477,15 +465,16 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # =========================
-# HERO / FELSŐ RÉSZ
+# HERO
 # =========================
+
+st.sidebar.image(
+    "trophy.png",
+    width=110
+)
 
 st.sidebar.markdown("""
 <div class="sidebar-hero">
-
-    <div class="hero-icon">
-        <img src="trophy.png" alt="Kupa">
-    </div>
 
     <div class="hero-title">
         Diák<br>Pontverseny
