@@ -907,27 +907,38 @@ def szinezes(sor):
 # STYLED DATAFRAME
 # ------------------------
 
-tabla_html = """
-
+tabla_html = f"""
 <table style="
     width:100%;
     border-collapse:collapse;
-    overflow:hidden;
     border-radius:22px;
+    overflow:hidden;
     background:white;
+    box-shadow:0 8px 25px rgba(120,90,255,0.12);
 ">
+
+<thead>
 
 <tr style="
     background:#f3e9ff;
     color:#7b57d1;
 ">
+
     <th style="padding:16px;">Hely</th>
-    <th>Páros</th>
-    <th>Pont</th>
-    <th>Jegy</th>
-    <th>Progress</th>
+
+    <th style="padding:16px;">Páros</th>
+
+    <th style="padding:16px;">Pont</th>
+
+    <th style="padding:16px;">Jegy</th>
+
+    <th style="padding:16px;">Progress</th>
+
 </tr>
 
+</thead>
+
+<tbody>
 """
 
 for _, sor in df.iterrows():
@@ -947,60 +958,41 @@ for _, sor in df.iterrows():
     else:
         hatter = "#FFEAF3"
 
-    tabla_html += f"""
+    progress_html = progress_bar(
+        sor["Százalék"],
+        progress_szin(sor["Jegy"])
+    )
 
+    tabla_html += f"""
     <tr style="background:{hatter};">
 
         <td style="padding:16px;">
             {sor["Hely"]}
         </td>
 
-        <td>{sor["Páros"]}</td>
+        <td style="padding:16px;">
+            {sor["Páros"]}
+        </td>
 
-        <td>{sor["Pont"]}</td>
+        <td style="padding:16px;">
+            {sor["Pont"]}
+        </td>
 
-        <td>{sor["Jegy"]}</td>
+        <td style="padding:16px;">
+            {sor["Jegy"]}
+        </td>
 
-        <td>
-
-            <div style="
-                display:flex;
-                align-items:center;
-                gap:12px;
-            ">
-
-                <div style="
-                    width:140px;
-                    height:10px;
-                    background:#ece6f5;
-                    border-radius:999px;
-                    overflow:hidden;
-                ">
-
-                    <div style="
-                        width:{sor["Százalék"]}%;
-                        height:100%;
-                        background:{progress_szin(sor["Jegy"])};
-                        border-radius:999px;
-                    "></div>
-
-                </div>
-
-                <span style="
-                    font-weight:700;
-                    color:#3d2a75;
-                ">
-                    {sor["Százalék"]:.2f}%
-                </span>
-
-            </div>
-
+        <td style="padding:16px;">
+            {progress_html}
         </td>
 
     </tr>
     """
 
-tabla_html += "</table>"
+tabla_html += """
+</tbody>
+</table>
+"""
 
 st.markdown(
     tabla_html,
