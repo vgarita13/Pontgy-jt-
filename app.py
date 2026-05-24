@@ -460,7 +460,10 @@ df = pd.DataFrame({
 # SZÁZALÉK SZÁMÍTÁS
 # ------------------------
 
-df["Százalék"] = round((df["Pont"] / max_pont) * 100, 1)
+df["Százalék"] = round(
+    (df["Pont"] / max_pont) * 100,
+    2
+)
 
 # ------------------------
 # JEGY SZÁMÍTÁS
