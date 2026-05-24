@@ -388,6 +388,24 @@ hr {
 </style>
 """, unsafe_allow_html=True)
 
+st.sidebar.image(
+    r"D:\++Tananyag Témakörönként\Programozás (10. osztály)\1-3 óra (Alapok)\Pontgyűjtő verseny\Képek\ChatGPT Image 2026. máj. 24. 12_55_06.png",
+    width=90
+)
+
+st.sidebar.markdown("""
+<div style="
+    color:white;
+    font-size:28px;
+    font-weight:800;
+    margin-top:-8px;
+    margin-bottom:20px;
+    text-align:center;
+">
+Diák Pontverseny
+</div>
+""", unsafe_allow_html=True)v
+
 # ------------------------
 # CÍM
 # ------------------------
