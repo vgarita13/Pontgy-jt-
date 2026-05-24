@@ -392,7 +392,9 @@ if admin:
 
     for paros in list(st.session_state.pontok.keys()):
 
-        col1, col2, col3, col4, col5, col6 = st.columns([4,2,1,1,2,1])
+        col1, col2, col3, col4, col5, col6 = st.columns(
+    [4, 2, 0.8, 0.8, 1.3, 0.8]
+)
 
         with col1:
             st.write(paros)
@@ -405,6 +407,7 @@ if admin:
                 max_value=100,
                 value=1,
                 key=f"input_{paros}"
+                label_visibility="collapsed"
             )
 
         with col3:
