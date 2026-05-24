@@ -444,7 +444,7 @@ st.markdown("""
 
     margin-top:-30px;
 
-    margin-bottom:0px;
+    margin-bottom:12px;
 
     text-shadow:
         0 4px 18px rgba(0,0,0,0.22);
@@ -477,27 +477,6 @@ st.markdown("""
    RÓZSASZÍN VONAL
 ========================= */
             
-
-.logo-title{
-
-    text-align:center;
-
-    font-size:30px;
-    font-weight:900;
-
-    line-height:1.05;
-
-    color:white;
-
-    letter-spacing:-0.5px;
-
-    margin-top:12px;
-    margin-bottom:12px;
-
-    text-shadow:
-        0 4px 18px rgba(0,0,0,0.22);
-}
-
 
 </style>
 """, unsafe_allow_html=True)
