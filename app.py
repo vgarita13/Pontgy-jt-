@@ -729,6 +729,43 @@ df["Százalék"] = round(
     2
 )
 
+def progress_bar(szazalek, szin):
+
+    return f"""
+    <div style="
+        display:flex;
+        align-items:center;
+        gap:12px;
+    ">
+
+        <div style="
+            width:140px;
+            height:10px;
+            background:#ece6f5;
+            border-radius:999px;
+            overflow:hidden;
+        ">
+
+            <div style="
+                width:{szazalek}%;
+                height:100%;
+                background:{szin};
+                border-radius:999px;
+            "></div>
+
+        </div>
+
+        <span style="
+            font-weight:600;
+            color:#3d2a75;
+            min-width:58px;
+        ">
+            {szazalek:.2f}%
+        </span>
+
+    </div>
+    """
+
 # ------------------------
 # JEGY SZÁMÍTÁS
 # ------------------------
@@ -747,6 +784,40 @@ def jegy(szazalek):
 
 
 df["Jegy"] = df["Százalék"].apply(jegy)
+
+df["Progress"] = df.apply(
+    lambda sor: progress_bar(
+        sor["Százalék"],
+        progress_szin(sor["Jegy"])
+    ),
+    axis=1
+)
+
+def progress_szin(jegy):
+
+    if jegy == 5:
+        return "#7DDB9A"
+
+    elif jegy == 4:
+        return "#9C7CFF"
+
+    elif jegy == 3:
+        return "#FFD24D"
+
+    elif jegy == 2:
+        return "#FFA24D"
+
+    else:
+        return "#FF7FB0"
+
+
+df["Progress"] = df.apply(
+    lambda sor: progress_bar(
+        sor["Százalék"],
+        progress_szin(sor["Jegy"])
+    ),
+    axis=1
+)
 
 # ------------------------
 # RANGSOR
@@ -843,18 +914,16 @@ def szinezes(sor):
 # ------------------------
 
 styled_df = (
-    df.style
+    df.drop(columns=["Százalék"])
+    .style
     .apply(szinezes, axis=1)
-    .format({
-        "Százalék": "{:.2f}%"
-    })
 )
 
-st.dataframe(
-    styled_df,
-    use_container_width=True,
-    height=500
+st.write(
+    styled_df.to_html(escape=False),
+    unsafe_allow_html=True
 )
+
 # ------------------------
 # LEGJOBB PÁROS
 # ------------------------
