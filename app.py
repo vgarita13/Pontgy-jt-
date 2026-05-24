@@ -111,33 +111,35 @@ section[data-testid="stSidebar"] span {
     padding-left: 0;
 }
 
-.grade-list li {
-
-    display:flex;
-
-    align-items:center;
-
-    gap:16px;
-
-    margin-bottom:22px;
-
-    font-size:20px;
-
-    font-weight:600;
-}
-
-/* SZÖVEG FIX SZÉLESSÉG */
-
-.grade-list li span:last-child{
+.grade-percent{
 
     display:inline-block;
 
-    width:110px;
+    width:48px;
 
-    text-align:left;
+    text-align:right;
 
     font-variant-numeric: tabular-nums;
 }
+
+.grade-arrow{
+
+    display:inline-block;
+
+    width:24px;
+
+    text-align:center;
+}
+
+.grade-number{
+
+    display:inline-block;
+
+    width:20px;
+
+    text-align:left;
+}
+            
 /* színes pöttyök */
 
 .dot {
@@ -861,11 +863,40 @@ st.sidebar.markdown("""
 
 <ul class="grade-list">
 
-<li><span class="dot green"></span><span>80% → 5</span></li>
-<li><span class="dot purple"></span><span>60% → 4</span></li>
-<li><span class="dot yellow"></span><span>40% → 3</span></li>
-<li><span class="dot orange"></span><span>25% → 2</span></li>
-<li><span class="dot red"></span><span>0% → 1</span></li>
+<li>
+    <span class="dot green"></span>
+    <span class="grade-percent">80%</span>
+    <span class="grade-arrow">→</span>
+    <span class="grade-number">5</span>
+</li>
+
+<li>
+    <span class="dot purple"></span>
+    <span class="grade-percent">60%</span>
+    <span class="grade-arrow">→</span>
+    <span class="grade-number">4</span>
+</li>
+
+<li>
+    <span class="dot yellow"></span>
+    <span class="grade-percent">40%</span>
+    <span class="grade-arrow">→</span>
+    <span class="grade-number">3</span>
+</li>
+
+<li>
+    <span class="dot orange"></span>
+    <span class="grade-percent">25%</span>
+    <span class="grade-arrow">→</span>
+    <span class="grade-number">2</span>
+</li>
+
+<li>
+    <span class="dot red"></span>
+    <span class="grade-percent">0%</span>
+    <span class="grade-arrow">→</span>
+    <span class="grade-number">1</span>
+</li>
 
 </ul>
 """, unsafe_allow_html=True)
