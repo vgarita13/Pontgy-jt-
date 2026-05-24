@@ -454,6 +454,10 @@ st.markdown("""
 button[title="View fullscreen"]{
     display:none !important;
 }
+            
+[data-testid="stImage"] button{
+    display:none !important;
+}
 
 
 /* =========================
