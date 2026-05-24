@@ -451,24 +451,25 @@ st.markdown("""
             
 /* KÉP TOOLBAR ELTÜNTETÉSE */
 
-button[title="View fullscreen"]{
-    display:none !important;
+/* STREAMLIT KÉP TOOLBAR REJTÉS */
+
+[data-testid="stImage"]{
+    position: relative;
 }
-            
+
 [data-testid="stImage"] button{
-    display:none !important;
-}
-            
-/* STREAMLIT IMAGE TOOLBAR */
-
-[data-testid="stImageToolbar"]{
-    display:none !important;
+    visibility:hidden !important;
+    opacity:0 !important;
+    pointer-events:none !important;
 }
 
-[data-testid="stImageToolbarButton"]{
+[data-testid="stImage"] [data-testid="StyledFullScreenButton"]{
     display:none !important;
 }
 
+button[aria-label="View fullscreen"]{
+    display:none !important;
+}
 
 /* =========================
    RÓZSASZÍN VONAL
