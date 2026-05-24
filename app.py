@@ -113,19 +113,22 @@ section[data-testid="stSidebar"] span {
 
 .grade-list li {
 
-    display: flex;
+    display:flex;
 
-    align-items: center;
+    align-items:center;
 
-    gap: 12px;
+    gap:14px;
 
-    margin-bottom: 18px;
+    margin-bottom:22px;
 
-    font-size: 20px;
+    font-size:20px;
 
-    font-weight: 600;
+    font-weight:600;
+
+    font-variant-numeric: tabular-nums;
+
+    min-width:160px;
 }
-
 /* színes pöttyök */
 
 .dot {
