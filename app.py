@@ -643,6 +643,35 @@ with col1:
     st.markdown("# 🏆 Pontverseny")
 
 with col2:
+
+    st.markdown("""
+    <style>
+    div.stButton > button:first-child {
+        background: linear-gradient(
+            135deg,
+            #8b5cf6,
+            #a855f7
+        );
+        color: white;
+        border: none;
+        border-radius: 18px;
+        padding: 12px 20px;
+        font-size: 16px;
+        font-weight: 700;
+        box-shadow:
+            0 8px 24px rgba(139,92,246,0.35);
+        transition: 0.25s;
+        margin-top: -10px;
+    }
+
+    div.stButton > button:first-child:hover {
+        transform: translateY(-2px);
+        box-shadow:
+            0 12px 28px rgba(139,92,246,0.45);
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
     if st.button("⬅️ Csoportváltás"):
         st.session_state.aktiv_csoport = None
         st.rerun()
