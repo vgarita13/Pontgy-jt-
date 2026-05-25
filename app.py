@@ -981,8 +981,15 @@ st.dataframe(
 # LEGJOBB PÁROS
 # ------------------------
 
+
+# ------------------------
+# LEGJOBB PÁROS
+# ------------------------
+
 if df.empty:
+
     st.info("Ebben a csoportban még nincs pont.")
+
 else:
 
     elso = df.iloc[0]
@@ -1005,31 +1012,12 @@ else:
         overflow:hidden;
     ">
 
+    🏆 Jelenlegi első helyezett:
+    {elso['Páros']}
+    ({elso['Pont']} pont)
 
-st.markdown(f"""
-<div style="
-    background: linear-gradient(
-        90deg,
-        #eefdf2,
-        #f8fff9
-    );
-    border:1px solid #d9f5df;
-    border-radius:24px;
-    padding:22px 26px;
-    color:#237346;
-    font-size:28px;
-    font-weight:700;
-    box-shadow:
-        0 6px 20px rgba(125,219,154,0.10);
-    overflow:hidden;
-">
-
-🏆 Jelenlegi első helyezett:
-{elso['Páros']}
-({elso['Pont']} pont)
-
-</div>
-""", unsafe_allow_html=True)
+    </div>
+    """, unsafe_allow_html=True)
 
 # ------------------------
 # OLDALSÁV INFORMÁCIÓ
