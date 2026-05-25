@@ -375,10 +375,15 @@ div[data-testid="stVerticalBlock"] > div:has(.element-container) {
 
 /* hover */
 
-
 .stButton > button:hover {
 
     color: white !important;
+
+    background: linear-gradient(
+        135deg,
+        #8b5cf6,
+        #a855f7
+    ) !important;
 
     transform: translateY(-2px) scale(1.02);
 
