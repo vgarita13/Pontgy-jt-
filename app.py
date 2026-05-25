@@ -50,7 +50,13 @@ except:
 if "aktiv_csoport" not in st.session_state:
     st.session_state.aktiv_csoport = None
 
+
 if st.session_state.aktiv_csoport is None:
+
+    if len(csoportok) == 0:
+        st.warning("Nincs még csoport.")
+        st.stop()
+
 
     st.markdown("""
     <h1 style='text-align:center; margin-top:80px;'>
