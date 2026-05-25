@@ -643,33 +643,6 @@ st.markdown("## Aktuális állás")
 # ------------------------
 
 # ------------------------
-# ÚJ CSOPORT
-# ------------------------
-
-if admin:
-
-    st.sidebar.markdown("## ➕ Új csoport")
-
-    uj_csoport = st.sidebar.text_input(
-        "Csoport neve"
-    )
-
-    if st.sidebar.button("Csoport létrehozása"):
-
-        if uj_csoport != "":
-
-            supabase.table("csoportok").insert({
-                "nev": uj_csoport
-            }).execute()
-
-            st.success("Csoport létrehozva!")
-            st.rerun()
-
-
-# ------------------------
-# MAXIMUM PONT
-# ------------------------
-# ------------------------
 # MAXIMUM PONT
 # ------------------------
 
