@@ -41,67 +41,106 @@ except:
 # CSOPORT VÁLASZTÁS
 # ------------------------
 
-if "aktiv_csoport" not in st.session_state:
-    st.session_state.aktiv_csoport = None
-
+# -------------------------
+# CSOPORT VÁLASZTÁS
+# -------------------------
 
 if st.session_state.aktiv_csoport is None:
 
-    if len(csoportok) == 0:
-        st.warning("Nincs még csoport.")
-
-    st.markdown("---")
-
-    st.markdown("## 👩‍🏫 Tanári mód")
-
-    jelszo = st.text_input(
-        "Tanári jelszó",
-        type="password"
-    )
-
-    if jelszo == "titok123":
-        st.session_state["admin"] = True
-
-    if "admin" not in st.session_state:
-        st.session_state["admin"] = False
-
-    admin = st.session_state["admin"]
-
-    if admin:
-
-        st.markdown("### ➕ Új csoport")
-
-        uj_csoport = st.text_input(
-            "Csoport neve"
-        )
-
-        if st.button("Csoport létrehozása"):
-
-            if uj_csoport != "":
-
-                supabase.table("csoportok").insert({
-                    "nev": uj_csoport
-                }).execute()
-
-                st.success("Csoport létrehozva!")
-                st.rerun()
-
     st.markdown("""
-    <h1 style='text-align:center; margin-top:80px;'>
-        🎓 Válassz csoportot
-    </h1>
+    <style>
+
+    .chooser-title{
+        text-align:center;
+        font-size:72px;
+        font-weight:800;
+        color:#2d1b7d;
+        margin-top:40px;
+        margin-bottom:10px;
+    }
+
+    .chooser-sub{
+        text-align:center;
+        font-size:28px;
+        color:#8b72c9;
+        margin-bottom:60px;
+    }
+
+    div.stButton > button {
+
+        width:100%;
+        height:220px;
+
+        border:none !important;
+        border-radius:34px !important;
+
+        background:rgba(255,255,255,0.72) !important;
+        backdrop-filter: blur(12px);
+
+        color:#2d1b7d !important;
+
+        font-size:42px !important;
+        font-weight:800 !important;
+
+        box-shadow:
+            0 10px 35px rgba(170,120,255,0.15);
+
+        transition:0.25s;
+    }
+
+    div.stButton > button:hover {
+
+        transform:
+            translateY(-6px)
+            scale(1.02);
+
+        background:white !important;
+
+        color:#7c3aed !important;
+
+        box-shadow:
+            0 18px 40px rgba(170,120,255,0.28);
+    }
+
+    .stApp{
+        background:
+            radial-gradient(circle at top left,
+            rgba(190,150,255,0.28),
+            transparent 25%),
+
+            radial-gradient(circle at bottom right,
+            rgba(210,170,255,0.28),
+            transparent 25%),
+
+            linear-gradient(
+                135deg,
+                #f8f3ff,
+                #f1e8ff
+            );
+    }
+
+    </style>
     """, unsafe_allow_html=True)
 
-    cols = st.columns(len(csoportok))
+    st.markdown("""
+    <div class="chooser-title">
+        🏆 Válassz csoportot
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("""
+    <div class="chooser-sub">
+        ✨ Kattints a csoportodra a folytatáshoz!
+    </div>
+    """, unsafe_allow_html=True)
+
+    cols = st.columns(3)
 
     for i, csoport in enumerate(csoportok):
 
-        with cols[i]:
+        with cols[i % 3]:
 
-            if st.button(
-                csoport,
-                use_container_width=True
-            ):
+            if st.button(csoport, key=f"group_{csoport}"):
 
                 st.session_state.aktiv_csoport = csoport
                 st.rerun()
