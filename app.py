@@ -109,6 +109,11 @@ if st.session_state.aktiv_csoport is None:
     st.stop()
 
 aktiv_csoport = st.session_state.aktiv_csoport
+
+if st.sidebar.button("⬅️ Csoportváltás"):
+
+    st.session_state.aktiv_csoport = None
+    st.rerun()
         
 if "admin" not in st.session_state:
     st.session_state["admin"] = False
