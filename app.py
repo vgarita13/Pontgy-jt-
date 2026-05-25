@@ -824,19 +824,6 @@ def szinezes(sor):
 # TÁBLÁZAT
 # ------------------------
 
-styled_df = (
-    df.style
-    .apply(szinezes, axis=1)
-    .format({
-        "Százalék": "{:.2f}%"
-    })
-)
-
-st.dataframe(
-    styled_df,
-    use_container_width=True,
-    height=500
-)
 
 # ------------------------
 # RENDEZÉS
@@ -870,6 +857,21 @@ for i in range(len(df)):
         helyezesek.append(f"#{i+1}")
 
 df.insert(0, "Hely", helyezesek)
+
+styled_df = (
+    df.style
+    .apply(szinezes, axis=1)
+    .format({
+        "Százalék": "{:.2f}%"
+    })
+)
+
+st.dataframe(
+    styled_df,
+    use_container_width=True,
+    height=500
+)
+
 
 # ------------------------
 # ELSŐ HELYEZETT
