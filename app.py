@@ -26,7 +26,6 @@ try:
         .execute()
     )
 
-    st.write(csoport_adatok.data)
 
     csoportok = [
         c["nev"]
@@ -619,12 +618,12 @@ jelszo = st.sidebar.text_input(
 admin = jelszo == "titok123"
 
 # ------------------------
-# ÚJ CSOPORT LÉTREHOZÁSA
+# ÚJ CSOPORT
 # ------------------------
 
 if admin:
 
-    st.sidebar.markdown("### ➕ Új csoport")
+    st.sidebar.markdown("## ➕ Új csoport")
 
     uj_csoport = st.sidebar.text_input(
         "Csoport neve"
@@ -638,6 +637,7 @@ if admin:
                 "nev": uj_csoport
             }).execute()
 
+            st.success("Csoport létrehozva!")
             st.rerun()
 
 
@@ -701,8 +701,6 @@ else:
 # PÁROSOK ADATAI
 # ------------------------
 
-FAJL = "pontok.json"
-
 # ------------------------
 # GITHUB BEÁLLÍTÁSOK
 # ------------------------
@@ -714,10 +712,6 @@ supabase = create_client(
     SUPABASE_URL,
     SUPABASE_KEY
 )
-
-REPO_NEV = "vgarita13/Pontgy-jt-"
-
-JSON_FAJL = "pontok.json"
 
 # ------------------------
 # BETÖLTÉS
@@ -735,7 +729,13 @@ if "pontok" not in st.session_state:
 
     try:
 
-        adatbazis = supabase.table("pontok").select("*").execute()
+        adatbazis = (
+            supabase
+            .table("pontok")
+            .select("*")
+            .eq("csoport", aktiv_csoport)
+            .execute()
+        )
 
         st.session_state.pontok = {}
 
@@ -756,7 +756,10 @@ def mentes():
     try:
 
         # régi adatok törlése
-        supabase.table("pontok").delete().neq("id", 0).execute()
+        supabase.table("pontok") \
+            .delete() \
+            .eq("csoport", aktiv_csoport) \
+            .execute()
 
         # új adatok feltöltése
         for paros, pont in st.session_state.pontok.items():
