@@ -26,6 +26,8 @@ try:
         .execute()
     )
 
+    st.write(csoport_adatok.data)
+
     csoportok = [
         c["nev"]
         for c in csoport_adatok.data
