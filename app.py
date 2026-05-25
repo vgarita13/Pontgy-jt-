@@ -644,18 +644,37 @@ if admin:
 # ------------------------
 # MAXIMUM PONT
 # ------------------------
+# ------------------------
+# MAXIMUM PONT
+# ------------------------
+
 try:
 
-    beallitas = supabase.table("maxpont").select("*").execute()
+    beallitas = (
+        supabase
+        .table("maxpont")
+        .select("*")
+        .eq("csoport", aktiv_csoport)
+        .execute()
+    )
 
     if beallitas.data:
+
         alap_max_pont = beallitas.data[0]["max_pont"]
+
     else:
-        alap_max_pont = 0
+
+        alap_max_pont = 100
+
+        supabase.table("maxpont").insert({
+            "csoport": aktiv_csoport,
+            "max_pont": 100
+        }).execute()
 
 except:
 
-    alap_max_pont = 0
+    alap_max_pont = 100
+
 
 if admin:
 
@@ -665,10 +684,14 @@ if admin:
         value=alap_max_pont
     )
 
-    supabase.table("maxpont").upsert({
-        "id": 1,
-        "max_pont": max_pont
-    }).execute()
+    if st.sidebar.button("💾 Max pont mentése"):
+
+        supabase.table("maxpont").update({
+            "max_pont": max_pont
+        }).eq("csoport", aktiv_csoport).execute()
+
+        st.success("Max pont frissítve!")
+        st.rerun()
 
 else:
 
