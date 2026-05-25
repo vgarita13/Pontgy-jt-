@@ -642,25 +642,30 @@ st.markdown("# 🏆 Pontverseny")
 st.markdown("""
 <style>
 
-div.stButton > button[kind="secondary"] {
+div.stButton > button {
 
     position: fixed;
     top: 90px;
     right: 40px;
     z-index: 999;
 
+    width: auto !important;
+
     background: linear-gradient(
         135deg,
         #8b5cf6,
         #a855f7
-    );
+    ) !important;
 
-    color: white;
-    border: none;
-    border-radius: 18px;
-    padding: 12px 20px;
-    font-size: 16px;
-    font-weight: 700;
+    color: white !important;
+
+    border: none !important;
+    border-radius: 18px !important;
+
+    padding: 12px 22px !important;
+
+    font-size: 15px !important;
+    font-weight: 700 !important;
 
     box-shadow:
         0 8px 24px rgba(139,92,246,0.35);
@@ -668,7 +673,7 @@ div.stButton > button[kind="secondary"] {
     transition: 0.25s;
 }
 
-div.stButton > button[kind="secondary"]:hover {
+div.stButton > button:hover {
 
     transform: translateY(-2px);
 
