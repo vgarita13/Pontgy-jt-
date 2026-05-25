@@ -579,6 +579,29 @@ else:
 
     max_pont = alap_max_pont
 
+    st.sidebar.markdown(f"""
+    <div style="
+        margin-top:10px;
+        background:rgba(255,255,255,0.14);
+        border:1px solid rgba(255,255,255,0.18);
+        border-radius:18px;
+        padding:14px 16px;
+        color:white;
+        font-size:18px;
+        font-weight:700;
+        text-align:center;
+        backdrop-filter:blur(10px);
+    ">
+        🎯 Aktuális max pont<br>
+        <span style="
+            font-size:32px;
+            font-weight:900;
+        ">
+            {max_pont}
+        </span>
+    </div>
+    """, unsafe_allow_html=True)
+
 # ------------------------
 # PÁROSOK ADATAI
 # ------------------------
