@@ -40,8 +40,6 @@ except:
 # CSOPORT VÁLASZTÁS
 # ------------------------
 
-if len(csoportok) > 0:
-
 
 # ------------------------
 # CSOPORT VÁLASZTÁS
