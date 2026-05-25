@@ -649,50 +649,6 @@ st.sidebar.markdown("""
 
 st.markdown("# 🏆 Pontverseny")
 
-st.markdown("""
-<style>
-
-div.stButton > button {
-
-    position: fixed;
-    top: 90px;
-    right: 40px;
-    z-index: 999;
-
-    width: auto !important;
-
-    background: linear-gradient(
-        135deg,
-        #8b5cf6,
-        #a855f7
-    ) !important;
-
-    color: white !important;
-
-    border: none !important;
-    border-radius: 18px !important;
-
-    padding: 12px 22px !important;
-
-    font-size: 15px !important;
-    font-weight: 700 !important;
-
-    box-shadow:
-        0 8px 24px rgba(139,92,246,0.35);
-
-    transition: 0.25s;
-}
-
-div.stButton > button:hover {
-
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 12px 28px rgba(139,92,246,0.45);
-}
-
-</style>
-""", unsafe_allow_html=True)
 
 if st.button("⬅️ Csoportváltás"):
 
