@@ -41,10 +41,6 @@ except:
 # CSOPORT VÁLASZTÁS
 # ------------------------
 
-# -------------------------
-# CSOPORT VÁLASZTÁS
-# -------------------------
-
 if "aktiv_csoport" not in st.session_state:
     st.session_state.aktiv_csoport = None
 
@@ -69,7 +65,7 @@ if st.session_state.aktiv_csoport is None:
         margin-bottom:60px;
     }
 
-    div.stButton > button {
+    div[data-testid="column"] .stButton > button
 
         width:100%;
         height:220px;
@@ -91,7 +87,7 @@ if st.session_state.aktiv_csoport is None:
         transition:0.25s;
     }
 
-    div.stButton > button:hover {
+    div[data-testid="column"] .stButton > button
 
         transform:
             translateY(-6px)
@@ -136,6 +132,21 @@ if st.session_state.aktiv_csoport is None:
         ✨ Kattints a csoportodra a folytatáshoz!
     </div>
     """, unsafe_allow_html=True)
+
+    st.markdown("---")
+
+st.markdown("### 👩‍🏫 Tanári mód")
+
+jelszo = st.text_input(
+    "Tanári jelszó",
+    type="password"
+)
+
+if jelszo == "titok123":
+    st.session_state["admin"] = True
+
+if "admin" not in st.session_state:
+    st.session_state["admin"] = False
 
     cols = st.columns(3)
 
