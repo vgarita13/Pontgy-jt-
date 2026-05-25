@@ -59,12 +59,15 @@ if st.session_state.aktiv_csoport is None:
         type="password"
     )
 
-    if jelszo == "titok123":
-        st.session_state["admin"] = True
+if jelszo == "titok123":
+    st.session_state["admin"] = True
 
-        admin = st.session_state["admin"]
+if "admin" not in st.session_state:
+    st.session_state["admin"] = False
 
-    if admin:
+admin = st.session_state["admin"]
+
+if admin:
 
         st.markdown("### ➕ Új csoport")
 
