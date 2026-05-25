@@ -62,7 +62,7 @@ if st.session_state.aktiv_csoport is None:
     if jelszo == "titok123":
         st.session_state["admin"] = True
 
-    admin = st.session_state.admin
+        admin = st.session_state["admin"]
 
     if admin:
 
