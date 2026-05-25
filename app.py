@@ -45,6 +45,9 @@ except:
 # CSOPORT VÁLASZTÁS
 # -------------------------
 
+if "aktiv_csoport" not in st.session_state:
+    st.session_state.aktiv_csoport = None
+
 if st.session_state.aktiv_csoport is None:
 
     st.markdown("""
