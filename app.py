@@ -110,10 +110,6 @@ if st.session_state.aktiv_csoport is None:
 
 aktiv_csoport = st.session_state.aktiv_csoport
 
-if st.sidebar.button("⬅️ Csoportváltás"):
-
-    st.session_state.aktiv_csoport = None
-    st.rerun()
         
 if "admin" not in st.session_state:
     st.session_state["admin"] = False
@@ -640,7 +636,17 @@ st.sidebar.markdown("""
 # CÍM
 # ------------------------
 
-st.title("🏆 Pontverseny")
+
+col1, col2 = st.columns([8, 2])
+
+with col1:
+    st.markdown("# 🏆 Pontverseny")
+
+with col2:
+    if st.button("⬅️ Csoportváltás"):
+        st.session_state.aktiv_csoport = None
+        st.rerun()
+
 st.markdown("## Aktuális állás")
 
 # ------------------------
