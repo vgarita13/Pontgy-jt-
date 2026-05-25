@@ -661,7 +661,7 @@ with col2:
         box-shadow:
             0 8px 24px rgba(139,92,246,0.35);
         transition: 0.25s;
-        margin-top: -10px;
+        margin-top: -60px;
     }
 
     div.stButton > button:first-child:hover {
