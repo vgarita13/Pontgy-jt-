@@ -375,8 +375,13 @@ div[data-testid="stVerticalBlock"] > div:has(.element-container) {
 
 /* hover */
 
+
 .stButton > button:hover {
+
+    color: white !important;
+
     transform: translateY(-2px) scale(1.02);
+
     box-shadow: 0 8px 20px rgba(176,124,255,0.35);
 }
 
