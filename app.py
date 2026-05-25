@@ -728,6 +728,7 @@ def mentes():
         for paros, pont in st.session_state.pontok.items():
 
             supabase.table("pontok").insert({
+                "csoport": aktiv_csoport,
                 "paros": paros,
                 "pont": pont
             }).execute()
