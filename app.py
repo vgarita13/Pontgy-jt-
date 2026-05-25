@@ -562,16 +562,22 @@ except:
 
     alap_max_pont = 0
 
-max_pont = st.sidebar.number_input(
-    "Maximum elérhető pont",
-    min_value=0,
-    value=alap_max_pont
-)
+if admin:
 
-supabase.table("maxpont").upsert({
-    "id": 1,
-    "max_pont": max_pont
-}).execute()
+    max_pont = st.sidebar.number_input(
+        "Maximum elérhető pont",
+        min_value=1,
+        value=alap_max_pont
+    )
+
+    supabase.table("maxpont").upsert({
+        "id": 1,
+        "max_pont": max_pont
+    }).execute()
+
+else:
+
+    max_pont = alap_max_pont
 
 # ------------------------
 # PÁROSOK ADATAI
