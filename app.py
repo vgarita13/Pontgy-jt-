@@ -60,7 +60,7 @@ if st.session_state.aktiv_csoport is None:
     )
 
     if jelszo == "titok123":
-        st.session_state.admin = True
+        st.session_state["admin"] = True
 
     admin = st.session_state.admin
 
@@ -108,9 +108,9 @@ if st.session_state.aktiv_csoport is None:
 aktiv_csoport = st.session_state.aktiv_csoport
         
 if "admin" not in st.session_state:
-    st.session_state.admin = False
+    st.session_state["admin"] = False
 
-admin = st.session_state.admin
+admin = st.session_state["admin"]
 
 # ------------------------
 # OLDAL BEÁLLÍTÁSOK
