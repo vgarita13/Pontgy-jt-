@@ -8,6 +8,67 @@ SUPABASE_KEY = st.secrets["SUPABASE_KEY"]
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 # ------------------------
+# CSOPORTOK BETÖLTÉSE
+# ------------------------
+
+try:
+
+    csoport_adatok = (
+        supabase
+        .table("csoportok")
+        .select("*")
+        .execute()
+    )
+
+    csoportok = [
+        c["nev"]
+        for c in csoport_adatok.data
+    ]
+
+except:
+
+    csoportok = []
+
+# ------------------------
+# ÚJ CSOPORT LÉTREHOZÁSA
+# ------------------------
+
+if admin:
+
+    st.sidebar.markdown("### ➕ Új csoport")
+
+    uj_csoport = st.sidebar.text_input(
+        "Csoport neve"
+    )
+
+    if st.sidebar.button("Csoport létrehozása"):
+
+        if uj_csoport != "":
+
+            supabase.table("csoportok").insert({
+                "nev": uj_csoport
+            }).execute()
+
+            st.rerun()
+
+# ------------------------
+# CSOPORT VÁLASZTÁS
+# ------------------------
+
+if len(csoportok) > 0:
+
+    aktiv_csoport = st.sidebar.selectbox(
+        "📚 Csoport",
+        csoportok
+    )
+
+else:
+
+    st.warning("Nincs még csoport.")
+
+    st.stop()
+
+# ------------------------
 # OLDAL BEÁLLÍTÁSOK
 # ------------------------
 
