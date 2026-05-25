@@ -839,13 +839,30 @@ st.dataframe(
 )
 
 # ------------------------
+# RENDEZÉS
+# ------------------------
+
+df = df.sort_values(
+    by="Pont",
+    ascending=False
+)
+
+df = df.reset_index(drop=True)
+
+# ------------------------
+# ELSŐ HELYEZETT
+# ------------------------
+
+elso = df.iloc[0]
+
+# ------------------------
 # LEGJOBB PÁROS
 # ------------------------
 
 if df.empty:
     st.warning("Még nincs adat.")
     st.stop()
-elso = df.iloc[0]
+
 
 st.markdown(f"""
 <div style="
