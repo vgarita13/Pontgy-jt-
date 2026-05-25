@@ -745,14 +745,10 @@ if admin:
         value=alap_max_pont
     )
 
-    if st.sidebar.button("💾 Max pont mentése"):
-
-        supabase.table("maxpont").update({
-            "max_pont": max_pont
-        }).eq("csoport", aktiv_csoport).execute()
-
-        st.success("Max pont frissítve!")
-        st.rerun()
+    supabase.table("maxpont").upsert({
+        "csoport": aktiv_csoport,
+        "max_pont": max_pont
+    }).execute()
 
 else:
 
@@ -868,6 +864,7 @@ if admin:
                 key=f"input_{paros}",
                 label_visibility="collapsed"
             )
+
 
         with col3:
             if st.button("➕", key=f"plus_{paros}"):
