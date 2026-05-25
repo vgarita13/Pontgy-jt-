@@ -850,6 +850,28 @@ df = df.sort_values(
 df = df.reset_index(drop=True)
 
 # ------------------------
+# HELYEZÉSEK
+# ------------------------
+
+helyezesek = []
+
+for i in range(len(df)):
+
+    if i == 0:
+        helyezesek.append("🥇")
+
+    elif i == 1:
+        helyezesek.append("🥈")
+
+    elif i == 2:
+        helyezesek.append("🥉")
+
+    else:
+        helyezesek.append(f"#{i+1}")
+
+df.insert(0, "Hely", helyezesek)
+
+# ------------------------
 # ELSŐ HELYEZETT
 # ------------------------
 
