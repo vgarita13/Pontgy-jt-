@@ -1005,13 +1005,6 @@ else:
         overflow:hidden;
     ">
 
-    🏆 Jelenlegi első helyezett:
-    {elso['Páros']}
-    ({elso['Pont']} pont)
-
-    </div>
-    """, unsafe_allow_html=True)
-
 
 st.markdown(f"""
 <div style="
