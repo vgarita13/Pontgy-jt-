@@ -7,6 +7,12 @@ SUPABASE_KEY = st.secrets["SUPABASE_KEY"]
 
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
+st.set_page_config(
+    page_title="Diák Pontverseny",
+    page_icon="🏆",
+    layout="wide"
+)
+
 # ------------------------
 # CSOPORTOK BETÖLTÉSE
 # ------------------------
@@ -29,27 +35,6 @@ except:
 
     csoportok = []
 
-# ------------------------
-# ÚJ CSOPORT LÉTREHOZÁSA
-# ------------------------
-
-if admin:
-
-    st.sidebar.markdown("### ➕ Új csoport")
-
-    uj_csoport = st.sidebar.text_input(
-        "Csoport neve"
-    )
-
-    if st.sidebar.button("Csoport létrehozása"):
-
-        if uj_csoport != "":
-
-            supabase.table("csoportok").insert({
-                "nev": uj_csoport
-            }).execute()
-
-            st.rerun()
 
 # ------------------------
 # CSOPORT VÁLASZTÁS
@@ -57,26 +42,46 @@ if admin:
 
 if len(csoportok) > 0:
 
-    aktiv_csoport = st.sidebar.selectbox(
-        "📚 Csoport",
-        csoportok
-    )
 
-else:
+# ------------------------
+# CSOPORT VÁLASZTÁS
+# ------------------------
 
-    st.warning("Nincs még csoport.")
+if "aktiv_csoport" not in st.session_state:
+    st.session_state.aktiv_csoport = None
+
+if st.session_state.aktiv_csoport is None:
+
+    st.markdown("""
+    <h1 style='text-align:center; margin-top:80px;'>
+        🎓 Válassz csoportot
+    </h1>
+    """, unsafe_allow_html=True)
+
+    cols = st.columns(len(csoportok))
+
+    for i, csoport in enumerate(csoportok):
+
+        with cols[i]:
+
+            if st.button(
+                csoport,
+                use_container_width=True
+            ):
+
+                st.session_state.aktiv_csoport = csoport
+                st.rerun()
 
     st.stop()
+
+aktiv_csoport = st.session_state.aktiv_csoport
+        
+
 
 # ------------------------
 # OLDAL BEÁLLÍTÁSOK
 # ------------------------
 
-st.set_page_config(
-    page_title="Diák Pontverseny",
-    page_icon="🏆",
-    layout="wide"
-)
 
 st.markdown("""
 <style>
@@ -606,6 +611,29 @@ jelszo = st.sidebar.text_input(
 )
 
 admin = jelszo == "titok123"
+
+# ------------------------
+# ÚJ CSOPORT LÉTREHOZÁSA
+# ------------------------
+
+if admin:
+
+    st.sidebar.markdown("### ➕ Új csoport")
+
+    uj_csoport = st.sidebar.text_input(
+        "Csoport neve"
+    )
+
+    if st.sidebar.button("Csoport létrehozása"):
+
+        if uj_csoport != "":
+
+            supabase.table("csoportok").insert({
+                "nev": uj_csoport
+            }).execute()
+
+            st.rerun()
+
 
 # ------------------------
 # MAXIMUM PONT
