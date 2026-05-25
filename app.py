@@ -41,11 +41,6 @@ except:
 # CSOPORT VÁLASZTÁS
 # ------------------------
 
-
-# ------------------------
-# CSOPORT VÁLASZTÁS
-# ------------------------
-
 if "aktiv_csoport" not in st.session_state:
     st.session_state.aktiv_csoport = None
 
@@ -54,8 +49,39 @@ if st.session_state.aktiv_csoport is None:
 
     if len(csoportok) == 0:
         st.warning("Nincs még csoport.")
-        st.stop()
 
+    st.markdown("---")
+
+    st.markdown("## 👩‍🏫 Tanári mód")
+
+    jelszo = st.text_input(
+        "Tanári jelszó",
+        type="password"
+    )
+
+    if jelszo == "titok123":
+        st.session_state.admin = True
+
+    admin = st.session_state.admin
+
+    if admin:
+
+        st.markdown("### ➕ Új csoport")
+
+        uj_csoport = st.text_input(
+            "Csoport neve"
+        )
+
+        if st.button("Csoport létrehozása"):
+
+            if uj_csoport != "":
+
+                supabase.table("csoportok").insert({
+                    "nev": uj_csoport
+                }).execute()
+
+                st.success("Csoport létrehozva!")
+                st.rerun()
 
     st.markdown("""
     <h1 style='text-align:center; margin-top:80px;'>
@@ -81,7 +107,10 @@ if st.session_state.aktiv_csoport is None:
 
 aktiv_csoport = st.session_state.aktiv_csoport
         
+if "admin" not in st.session_state:
+    st.session_state.admin = False
 
+admin = st.session_state.admin
 
 # ------------------------
 # OLDAL BEÁLLÍTÁSOK
@@ -610,13 +639,6 @@ st.markdown("## Aktuális állás")
 # TANÁRI MÓD
 # ------------------------
 
-jelszo = st.sidebar.text_input(
-    "Tanári jelszó",
-    type="password"
-)
-
-admin = jelszo == "titok123"
-
 # ------------------------
 # ÚJ CSOPORT
 # ------------------------
@@ -719,30 +741,6 @@ else:
         </span>
     </div>
     """, unsafe_allow_html=True)
-
-# ------------------------
-# PÁROSOK ADATAI
-# ------------------------
-
-# ------------------------
-# GITHUB BEÁLLÍTÁSOK
-# ------------------------
-
-SUPABASE_URL = st.secrets["SUPABASE_URL"]
-SUPABASE_KEY = st.secrets["SUPABASE_KEY"]
-
-supabase = create_client(
-    SUPABASE_URL,
-    SUPABASE_KEY
-)
-
-# ------------------------
-# BETÖLTÉS
-# ------------------------
-
-# ------------------------
-# GITHUB RAW JSON URL
-# ------------------------
 
 # ------------------------
 # ELSŐ BETÖLTÉS
