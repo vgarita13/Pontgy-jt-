@@ -646,14 +646,16 @@ st.sidebar.markdown("""
 # CÍM
 # ------------------------
 
+col1, col2 = st.columns([8,2])
 
-st.markdown("# 🏆 Pontverseny")
+with col1:
+    st.markdown("# 🏆 Pontverseny")
 
-
-if st.button("⬅️ Csoportváltás"):
-
-    st.session_state.aktiv_csoport = None
-    st.rerun()
+with col2:
+    st.write("")
+    if st.button("⬅️ Csoportváltás"):
+        st.session_state.aktiv_csoport = None
+        st.rerun()
 
 st.markdown("## Aktuális állás")
 
