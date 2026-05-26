@@ -754,6 +754,8 @@ if st.sidebar.button("⬅️ Csoportváltás"):
     st.session_state.aktiv_csoport = None
     st.rerun()
 
+    st.sidebar.markdown("<div style='height:20px'></div>", unsafe_allow_html=True)
+
 st.sidebar.markdown(f"""
 <div style="
     margin-top:-8px;
