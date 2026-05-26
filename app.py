@@ -792,7 +792,10 @@ else:
 # ELSŐ BETÖLTÉS
 # ------------------------
 
-if "pontok" not in st.session_state:
+if (
+    "pontok" not in st.session_state
+    or st.session_state.get("betoltott_csoport") != aktiv_csoport
+):
 
     try:
 
@@ -805,6 +808,7 @@ if "pontok" not in st.session_state:
         )
 
         st.session_state.pontok = {}
+        st.session_state.betoltott_csoport = aktiv_csoport
 
         for sor in adatbazis.data:
 
