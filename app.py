@@ -406,41 +406,95 @@ div[data-testid="stVerticalBlock"] > div:has(.element-container) {
    GOMBOK
 ========================= */
 
-.stButton > button {
+/* =========================
+   FŐ GOMBOK
+========================= */
+
+div[data-testid="stVerticalBlock"] .stButton > button {
+
     background: linear-gradient(
         135deg,
-        #b07cff,
-        #ea8cff
+        #a855f7,
+        #c084fc
     ) !important;
 
     color: white !important;
 
     border: none !important;
 
-    border-radius: 14px !important;
+    border-radius: 16px !important;
 
     font-weight: 700 !important;
 
     transition: 0.25s !important;
 
-    box-shadow: 0 4px 15px rgba(176,124,255,0.25);
+    box-shadow:
+        0 8px 24px rgba(168,85,247,0.25);
+
+    height: 48px;
 }
 
 /* hover */
 
-.stButton > button:hover {
-
-    color: white !important;
+div[data-testid="stVerticalBlock"] .stButton > button:hover {
 
     background: linear-gradient(
         135deg,
-        #8b5cf6,
-        #a855f7
+        #9333ea,
+        #b066ff
     ) !important;
 
-    transform: translateY(-2px) scale(1.02);
+    color: white !important;
 
-    box-shadow: 0 8px 20px rgba(176,124,255,0.35);
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 28px rgba(168,85,247,0.35);
+}
+
+/* =========================
+   SIDEBAR GOMB
+========================= */
+
+section[data-testid="stSidebar"] .stButton > button {
+
+    width: 100%;
+
+    background:
+        rgba(255,255,255,0.14) !important;
+
+    border:
+        1px solid rgba(255,255,255,0.18) !important;
+
+    backdrop-filter: blur(12px);
+
+    color: white !important;
+
+    border-radius: 18px !important;
+
+    font-weight: 700 !important;
+
+    height: 52px;
+
+    transition: 0.25s;
+
+    box-shadow:
+        0 8px 24px rgba(0,0,0,0.10);
+}
+
+/* sidebar hover */
+
+section[data-testid="stSidebar"] .stButton > button:hover {
+
+    background:
+        rgba(255,255,255,0.22) !important;
+
+    color: white !important;
+
+    transform: translateY(-2px);
+
+    border:
+        1px solid rgba(255,255,255,0.28) !important;
 }
 
 /* =========================
