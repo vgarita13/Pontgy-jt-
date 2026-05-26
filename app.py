@@ -1218,6 +1218,11 @@ st.sidebar.markdown("""
 </ul>
 """, unsafe_allow_html=True)
 
+st.sidebar.markdown(
+    "<div style='height:28px'></div>",
+    unsafe_allow_html=True
+)
+
 if st.sidebar.button("⬅️ Csoportváltás"):
 
     st.session_state.aktiv_csoport = None
