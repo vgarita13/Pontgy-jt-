@@ -749,10 +749,7 @@ st.sidebar.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-if st.sidebar.button("⬅️ Csoportváltás"):
 
-    st.session_state.aktiv_csoport = None
-    st.rerun()
 
 st.sidebar.markdown(f"""
 <div style="
@@ -1220,6 +1217,11 @@ st.sidebar.markdown("""
 
 </ul>
 """, unsafe_allow_html=True)
+
+if st.sidebar.button("⬅️ Csoportváltás"):
+
+    st.session_state.aktiv_csoport = None
+    st.rerun()
 
 # ------------------------
 # FRISSÍTÉSI ÚTMUTATÓ
