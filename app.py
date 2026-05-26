@@ -148,18 +148,18 @@ if jelszo == "titok123":
 if "admin" not in st.session_state:
     st.session_state["admin"] = False
 
-    cols = st.columns(3)
+cols = st.columns(3)
 
-    for i, csoport in enumerate(csoportok):
+for i, csoport in enumerate(csoportok):
 
-        with cols[i % 3]:
+    with cols[i % 3]:
 
-            if st.button(csoport, key=f"group_{csoport}"):
+        if st.button(csoport, key=f"group_{csoport}"):
 
-                st.session_state.aktiv_csoport = csoport
-                st.rerun()
+            st.session_state.aktiv_csoport = csoport
+            st.rerun()
 
-    st.stop()
+st.stop()
 
 aktiv_csoport = st.session_state.aktiv_csoport
 
