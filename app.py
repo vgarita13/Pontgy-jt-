@@ -135,37 +135,37 @@ if st.session_state.aktiv_csoport is None:
 
     st.markdown("---")
 
-st.markdown("### 👩‍🏫 Tanári mód")
-
-jelszo = st.text_input(
-    "Tanári jelszó",
-    type="password"
-)
-
-if jelszo == "titok123":
-    st.session_state["admin"] = True
-
 if "admin" not in st.session_state:
     st.session_state["admin"] = False
 
-cols = st.columns(3)
 
-for i, csoport in enumerate(csoportok):
+if st.session_state.aktiv_csoport is None:
 
-    with cols[i % 3]:
+    st.markdown("### 👩‍🏫 Tanári mód")
 
-        if st.button(csoport, key=f"group_{csoport}"):
+    jelszo = st.text_input(
+        "Tanári jelszó",
+        type="password"
+    )
 
-            st.session_state.aktiv_csoport = csoport
-            st.rerun()
+    if jelszo == "titok123":
+        st.session_state["admin"] = True
 
-st.stop()
+    cols = st.columns(3)
+
+    for i, csoport in enumerate(csoportok):
+
+        with cols[i % 3]:
+
+            if st.button(csoport, key=f"group_{csoport}"):
+
+                st.session_state.aktiv_csoport = csoport
+                st.rerun()
+
+    st.stop()
+
 
 aktiv_csoport = st.session_state.aktiv_csoport
-
-        
-if "admin" not in st.session_state:
-    st.session_state["admin"] = False
 
 admin = st.session_state["admin"]
 
