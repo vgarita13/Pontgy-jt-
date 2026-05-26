@@ -754,37 +754,6 @@ if st.sidebar.button("⬅️ Csoportváltás"):
     st.session_state.aktiv_csoport = None
     st.rerun()
 
-st.sidebar.markdown(f"""
-<div style="
-    margin-top:12px;
-    margin-bottom:8px;
-    background:rgba(255,255,255,0.12);
-    border:1px solid rgba(255,255,255,0.18);
-    border-radius:18px;
-    padding:12px 16px;
-    text-align:center;
-    backdrop-filter:blur(10px);
-">
-
-<div style="
-    color:rgba(255,255,255,0.75);
-    font-size:14px;
-    font-weight:600;
-    margin-bottom:6px;
-">
-📚 Aktív csoport
-</div>
-
-<div style="
-    color:white;
-    font-size:26px;
-    font-weight:800;
-">
-{aktiv_csoport}
-</div>
-
-</div>
-""", unsafe_allow_html=True)
 
 
 # ------------------------
@@ -1219,6 +1188,38 @@ st.sidebar.markdown("""
 </li>
 
 </ul>
+""", unsafe_allow_html=True)
+
+st.sidebar.markdown(f"""
+<div style="
+    margin-top:18px;
+    margin-bottom:10px;
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.18);
+    border-radius:18px;
+    padding:12px 16px;
+    text-align:center;
+    backdrop-filter:blur(10px);
+">
+
+<div style="
+    color:rgba(255,255,255,0.75);
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:6px;
+">
+📚 Aktív csoport
+</div>
+
+<div style="
+    color:white;
+    font-size:26px;
+    font-weight:800;
+">
+{aktiv_csoport}
+</div>
+
+</div>
 """, unsafe_allow_html=True)
 
 # ------------------------
