@@ -186,17 +186,8 @@ st.markdown("<hr>", unsafe_allow_html=True)
 
 st.markdown("<div style='height:50px'></div>", unsafe_allow_html=True)
 
-st.markdown("## 👩‍🏫 Tanári mód")
 
-jelszo = st.text_input(
-    "Tanári jelszó",
-    type="password"
-)
-
-if jelszo == "titok123":
-    st.session_state["admin"] = True
-
-    st.stop()
+st.stop()
 
 
 aktiv_csoport = st.session_state.aktiv_csoport
