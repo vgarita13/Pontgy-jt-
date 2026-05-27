@@ -151,32 +151,18 @@ if st.session_state.aktiv_csoport is None:
     if jelszo == "titok123":
         st.session_state["admin"] = True
 
+    cols = st.columns(3)
 
-st.markdown('<div class="group-grid">', unsafe_allow_html=True)
+    for i, csoport in enumerate(csoportok):
 
-cols = st.columns(2)
+        with cols[i % 3]:
 
-for i, csoport in enumerate(csoportok):
+            if st.button(csoport, key=f"group_{csoport}"):
 
-    with cols[i % 2]:
+                st.session_state.aktiv_csoport = csoport
+                st.rerun()
 
-        if st.button(
-            f"📚 {csoport}",
-            key=f"group_{csoport}",
-            use_container_width=True
-        ):
-
-            st.session_state.aktiv_csoport = csoport
-            st.rerun()
-
-st.markdown("</div>", unsafe_allow_html=True)
-
-st.markdown("<hr>", unsafe_allow_html=True)
-
-st.markdown("<div style='height:50px'></div>", unsafe_allow_html=True)
-
-
-st.stop()
+    st.stop()
 
 
 aktiv_csoport = st.session_state.aktiv_csoport
@@ -647,90 +633,6 @@ hr {
 [data-testid="stNumberInputStepUp"],
 [data-testid="stNumberInputStepDown"] {
     display: none !important;
-}
-            
-            /* =========================
-   CSOPORTVÁLASZTÓ
-========================= */
-
-.chooser-title{
-
-    text-align:center;
-
-    font-size:72px;
-
-    font-weight:900;
-
-    color:#2e197d;
-
-    margin-top:40px;
-
-    margin-bottom:8px;
-}
-
-.chooser-sub{
-
-    text-align:center;
-
-    font-size:24px;
-
-    color:#8b6edb;
-
-    margin-bottom:60px;
-}
-
-/* grid */
-
-.group-grid{
-
-    margin-top:20px;
-
-    margin-bottom:40px;
-}
-
-/* csoport gombok */
-
-button[kind="secondary"]{
-
-    min-height:140px !important;
-
-    border-radius:32px !important;
-
-    background:
-        rgba(255,255,255,0.58) !important;
-
-    border:
-        1px solid rgba(255,255,255,0.75) !important;
-
-    backdrop-filter: blur(12px);
-
-    font-size:30px !important;
-
-    font-weight:800 !important;
-
-    color:#3e238f !important;
-
-    box-shadow:
-        0 12px 30px rgba(140,100,255,0.12);
-
-    transition:0.25s !important;
-}
-
-/* hover */
-
-button[kind="secondary"]:hover{
-
-    transform:
-        translateY(-6px)
-        scale(1.02);
-
-    background:
-        rgba(255,255,255,0.75) !important;
-
-    color:#2e197d !important;
-
-    box-shadow:
-        0 20px 40px rgba(140,100,255,0.18);
 }
 
 </style>
