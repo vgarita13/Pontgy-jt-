@@ -521,21 +521,6 @@ section[data-testid="stSidebar"] .stButton > button:hover {
    PLUSZ / MÍNUSZ GOMBOK
 ========================= */
 
-button[kind="secondary"] {
-    border-radius: 12px !important;
-
-    border: 2px solid #e6d9ff !important;
-
-    background: white !important;
-
-    color: #9b5cff !important;
-
-    font-weight: 700 !important;
-}
-
-button[kind="secondary"]:hover {
-    background: #f7f0ff !important;
-}
 
 /* =========================
    ALERT BOX
