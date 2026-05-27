@@ -154,17 +154,11 @@ if st.session_state.aktiv_csoport is None:
 
 st.markdown('<div class="group-grid">', unsafe_allow_html=True)
 
-col1, col2 = st.columns([1,1], gap="large")
+cols = st.columns(2)
 
 for i, csoport in enumerate(csoportok):
 
-    col = col1 if i % 2 == 0 else col2
-
-    with col:
-
-        st.markdown("""
-        <div class="group-card-space"></div>
-        """, unsafe_allow_html=True)
+    with cols[i % 2]:
 
         if st.button(
             f"📚 {csoport}",
@@ -521,6 +515,21 @@ section[data-testid="stSidebar"] .stButton > button:hover {
    PLUSZ / MÍNUSZ GOMBOK
 ========================= */
 
+button[kind="secondary"] {
+    border-radius: 12px !important;
+
+    border: 2px solid #e6d9ff !important;
+
+    background: white !important;
+
+    color: #9b5cff !important;
+
+    font-weight: 700 !important;
+}
+
+button[kind="secondary"]:hover {
+    background: #f7f0ff !important;
+}
 
 /* =========================
    ALERT BOX
@@ -672,97 +681,56 @@ hr {
 
 /* grid */
 
-/* =========================
-   CSOPORT KÁRTYÁK
-========================= */
+.group-grid{
 
-/* =========================
-   CSOPORT GOMBOK
-========================= */
+    margin-top:20px;
 
-div.stButton {
-
-    margin-bottom:30px;
+    margin-bottom:40px;
 }
 
-div.stButton > button {
+/* csoport gombok */
+
+button[kind="secondary"]{
 
     min-height:140px !important;
 
-    border-radius:30px !important;
+    border-radius:32px !important;
 
     background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,0.72),
-            rgba(255,255,255,0.50)
-        ) !important;
+        rgba(255,255,255,0.58) !important;
 
     border:
-        1px solid rgba(255,255,255,0.85) !important;
+        1px solid rgba(255,255,255,0.75) !important;
 
-    color:#3c238f !important;
+    backdrop-filter: blur(12px);
 
     font-size:30px !important;
 
     font-weight:800 !important;
 
-    letter-spacing:0.3px;
-
-    backdrop-filter:blur(16px);
+    color:#3e238f !important;
 
     box-shadow:
-        0 12px 35px rgba(140,100,255,0.15);
+        0 12px 30px rgba(140,100,255,0.12);
 
-    transition:all 0.25s ease !important;
+    transition:0.25s !important;
 }
 
 /* hover */
 
-div.stButton > button:hover {
+button[kind="secondary"]:hover{
 
     transform:
-        translateY(-6px);
+        translateY(-6px)
+        scale(1.02);
 
     background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,0.92),
-            rgba(255,255,255,0.72)
-        ) !important;
+        rgba(255,255,255,0.75) !important;
 
-    color:#2a1777 !important;
+    color:#2e197d !important;
 
     box-shadow:
-        0 18px 45px rgba(140,100,255,0.22);
-}
-
-/* chooser cím */
-
-.chooser-title{
-
-    text-align:center;
-
-    font-size:72px;
-
-    font-weight:900;
-
-    color:#2d177d;
-
-    margin-top:40px;
-
-    margin-bottom:10px;
-}
-
-.chooser-sub{
-
-    text-align:center;
-
-    font-size:24px;
-
-    color:#8d74d9;
-
-    margin-bottom:60px;
+        0 20px 40px rgba(140,100,255,0.18);
 }
 
 </style>
