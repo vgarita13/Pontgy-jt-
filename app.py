@@ -160,6 +160,8 @@ for i, csoport in enumerate(csoportok):
 
     with cols[i % 2]:
 
+        st.markdown("<div style='height:10px'></div>", unsafe_allow_html=True)
+
         if st.button(
             f"📚 {csoport}",
             key=f"group_{csoport}",
@@ -681,56 +683,79 @@ hr {
 
 /* grid */
 
-.group-grid{
+/* =========================
+   CSOPORT KÁRTYÁK
+========================= */
 
-    margin-top:20px;
+div.stButton > button {
 
-    margin-bottom:40px;
-}
+    height:140px !important;
 
-/* csoport gombok */
-
-button[kind="secondary"]{
-
-    min-height:140px !important;
-
-    border-radius:32px !important;
+    border-radius:28px !important;
 
     background:
-        rgba(255,255,255,0.58) !important;
+        rgba(255,255,255,0.55) !important;
 
     border:
-        1px solid rgba(255,255,255,0.75) !important;
+        1px solid rgba(255,255,255,0.70) !important;
 
-    backdrop-filter: blur(12px);
+    color:#3c228f !important;
 
-    font-size:30px !important;
+    font-size:28px !important;
 
     font-weight:800 !important;
 
-    color:#3e238f !important;
+    backdrop-filter: blur(14px);
 
     box-shadow:
-        0 12px 30px rgba(140,100,255,0.12);
+        0 12px 30px rgba(120,80,255,0.12);
 
-    transition:0.25s !important;
+    transition: all 0.25s ease !important;
 }
 
 /* hover */
 
-button[kind="secondary"]:hover{
+div.stButton > button:hover {
 
     transform:
-        translateY(-6px)
+        translateY(-5px)
         scale(1.02);
 
     background:
-        rgba(255,255,255,0.75) !important;
+        rgba(255,255,255,0.78) !important;
 
-    color:#2e197d !important;
+    color:#2d177d !important;
 
     box-shadow:
-        0 20px 40px rgba(140,100,255,0.18);
+        0 20px 45px rgba(120,80,255,0.20);
+}
+
+/* chooser cím */
+
+.chooser-title{
+
+    text-align:center;
+
+    font-size:72px;
+
+    font-weight:900;
+
+    color:#2d177d;
+
+    margin-top:40px;
+
+    margin-bottom:10px;
+}
+
+.chooser-sub{
+
+    text-align:center;
+
+    font-size:24px;
+
+    color:#8d74d9;
+
+    margin-bottom:60px;
 }
 
 </style>
