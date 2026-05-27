@@ -151,17 +151,6 @@ if st.session_state.aktiv_csoport is None:
     if jelszo == "titok123":
         st.session_state["admin"] = True
 
-st.markdown("""
-<div class="chooser-title">
-🏆 Válassz csoportot
-</div>
-""", unsafe_allow_html=True)
-
-st.markdown("""
-<div class="chooser-sub">
-✨ Kattints a csoportodra a folytatáshoz!
-</div>
-""", unsafe_allow_html=True)
 
 st.markdown('<div class="group-grid">', unsafe_allow_html=True)
 
