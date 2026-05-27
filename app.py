@@ -154,13 +154,17 @@ if st.session_state.aktiv_csoport is None:
 
 st.markdown('<div class="group-grid">', unsafe_allow_html=True)
 
-cols = st.columns(2)
+col1, col2 = st.columns([1,1], gap="large")
 
 for i, csoport in enumerate(csoportok):
 
-    with cols[i % 2]:
+    col = col1 if i % 2 == 0 else col2
 
-        st.markdown("<div style='height:10px'></div>", unsafe_allow_html=True)
+    with col:
+
+        st.markdown("""
+        <div class="group-card-space"></div>
+        """, unsafe_allow_html=True)
 
         if st.button(
             f"📚 {csoport}",
@@ -687,30 +691,45 @@ hr {
    CSOPORT KÁRTYÁK
 ========================= */
 
+/* =========================
+   CSOPORT GOMBOK
+========================= */
+
+div.stButton {
+
+    margin-bottom:30px;
+}
+
 div.stButton > button {
 
-    height:140px !important;
+    min-height:140px !important;
 
-    border-radius:28px !important;
+    border-radius:30px !important;
 
     background:
-        rgba(255,255,255,0.55) !important;
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.72),
+            rgba(255,255,255,0.50)
+        ) !important;
 
     border:
-        1px solid rgba(255,255,255,0.70) !important;
+        1px solid rgba(255,255,255,0.85) !important;
 
-    color:#3c228f !important;
+    color:#3c238f !important;
 
-    font-size:28px !important;
+    font-size:30px !important;
 
     font-weight:800 !important;
 
-    backdrop-filter: blur(14px);
+    letter-spacing:0.3px;
+
+    backdrop-filter:blur(16px);
 
     box-shadow:
-        0 12px 30px rgba(120,80,255,0.12);
+        0 12px 35px rgba(140,100,255,0.15);
 
-    transition: all 0.25s ease !important;
+    transition:all 0.25s ease !important;
 }
 
 /* hover */
@@ -718,16 +737,19 @@ div.stButton > button {
 div.stButton > button:hover {
 
     transform:
-        translateY(-5px)
-        scale(1.02);
+        translateY(-6px);
 
     background:
-        rgba(255,255,255,0.78) !important;
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.92),
+            rgba(255,255,255,0.72)
+        ) !important;
 
-    color:#2d177d !important;
+    color:#2a1777 !important;
 
     box-shadow:
-        0 20px 45px rgba(120,80,255,0.20);
+        0 18px 45px rgba(140,100,255,0.22);
 }
 
 /* chooser cím */
