@@ -171,6 +171,8 @@ if st.session_state.aktiv_csoport is None:
 
                 st.rerun()
 
+st.write(csoportok)
+
 cols = st.columns(2)
 
 for i, csoport in enumerate(csoportok):
@@ -185,7 +187,6 @@ for i, csoport in enumerate(csoportok):
 
             st.session_state.aktiv_csoport = csoport
             st.rerun()
-st.stop()
 
 
 aktiv_csoport = st.session_state.aktiv_csoport
