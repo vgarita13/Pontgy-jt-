@@ -151,7 +151,7 @@ if st.session_state.aktiv_csoport is None:
     if jelszo == "titok123":
 
         st.session_state["admin"] = True
-        
+
         st.success("✅ Tanári mód aktiválva")
 
         uj_csoport = st.text_input(
@@ -196,8 +196,6 @@ if st.session_state.aktiv_csoport is None:
 aktiv_csoport = st.session_state.aktiv_csoport
 
 admin = st.session_state["admin"]
-st.write("ADMIN:", admin)
-st.write("AKTÍV CSOPORT:", st.session_state.aktiv_csoport)
 
 # ------------------------
 # OLDAL BEÁLLÍTÁSOK
@@ -994,7 +992,7 @@ if admin:
             if st.button("➕", key=f"plus_{paros}"):
                 uj_pont = st.session_state.pontok[paros] + pont_valtozas
 
-                if uj_pont <= max_pont:
+                if uj_pont <= max_pont + 5:
 
                     st.session_state.pontok[paros] = uj_pont
 
