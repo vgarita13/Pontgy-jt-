@@ -150,6 +150,8 @@ if st.session_state.aktiv_csoport is None:
 
     if jelszo == "titok123":
 
+        st.session_state["admin"] = True
+        
         st.success("✅ Tanári mód aktiválva")
 
         uj_csoport = st.text_input(
