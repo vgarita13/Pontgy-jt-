@@ -863,10 +863,12 @@ if admin:
         value=alap_max_pont
     )
 
-    supabase.table("maxpont").upsert({
-        "csoport": aktiv_csoport,
+    supabase.table("maxpont") \
+    .update({
         "max_pont": max_pont
-    }).execute()
+    }) \
+    .eq("csoport", aktiv_csoport) \
+    .execute()
 
 else:
 
