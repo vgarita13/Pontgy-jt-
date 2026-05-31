@@ -194,6 +194,8 @@ if st.session_state.aktiv_csoport is None:
 aktiv_csoport = st.session_state.aktiv_csoport
 
 admin = st.session_state["admin"]
+st.write("ADMIN:", admin)
+st.write("AKTÍV CSOPORT:", st.session_state.aktiv_csoport)
 
 # ------------------------
 # OLDAL BEÁLLÍTÁSOK
