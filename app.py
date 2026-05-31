@@ -174,24 +174,22 @@ if st.session_state.aktiv_csoport is None:
                     st.rerun()
 
 
-cols = st.columns(2)
+    cols = st.columns(2)
 
-for i, csoport in enumerate(csoportok):
+    for i, csoport in enumerate(csoportok):
 
-    with cols[i % 2]:
+        with cols[i % 2]:
 
-        if st.button(
-            f"📚 {csoport}",
-            key=f"group_{csoport}",
-            use_container_width=True
-        ):
+            if st.button(
+                f"📚 {csoport}",
+                key=f"group_{csoport}",
+                use_container_width=True
+            ):
 
-            st.session_state.aktiv_csoport = csoport
-
-            st.write("BELÉPTEM:", csoport)
-            
-            st.rerun()
-st.stop()
+                st.session_state.aktiv_csoport = csoport
+                
+                st.rerun()
+    st.stop()
 
 aktiv_csoport = st.session_state.aktiv_csoport
 
