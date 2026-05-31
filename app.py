@@ -149,18 +149,25 @@ if st.session_state.aktiv_csoport is None:
     )
 
     if jelszo == "titok123":
-        st.session_state["admin"] = True
 
-    cols = st.columns(3)
+    st.success("✅ Tanári mód aktiválva")
 
-    for i, csoport in enumerate(csoportok):
+    uj_csoport = st.text_input(
+        "Új csoport neve",
+        placeholder="pl. 11.A"
+    )
 
-        with cols[i % 3]:
+    if st.button("➕ Csoport létrehozása"):
 
-            if st.button(csoport, key=f"group_{csoport}"):
+        if uj_csoport.strip():
 
-                st.session_state.aktiv_csoport = csoport
-                st.rerun()
+            supabase.table("csoportok").insert({
+                "nev": uj_csoport.strip()
+            }).execute()
+
+            st.success("Csoport létrehozva!")
+
+            st.rerun()
 
     st.stop()
 
