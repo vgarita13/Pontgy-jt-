@@ -187,6 +187,9 @@ for i, csoport in enumerate(csoportok):
         ):
 
             st.session_state.aktiv_csoport = csoport
+
+            st.write("BELÉPTEM:", csoport)
+            
             st.rerun()
 st.stop()
 
