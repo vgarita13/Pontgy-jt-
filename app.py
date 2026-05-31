@@ -65,7 +65,7 @@ if st.session_state.aktiv_csoport is None:
         margin-bottom:60px;
     }
 
-    div[data-testid="column"] .stButton > button
+    div[data-testid="column"] .stButton > button {
 
         width:100%;
         height:220px;
@@ -87,7 +87,7 @@ if st.session_state.aktiv_csoport is None:
         transition:0.25s;
     }
 
-    div[data-testid="column"] .stButton > button
+    div[data-testid="column"] .stButton > button {
 
         transform:
             translateY(-6px)
