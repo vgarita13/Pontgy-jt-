@@ -161,9 +161,11 @@ if st.session_state.aktiv_csoport is None:
 
             if uj_csoport.strip():
 
-                supabase.table("csoportok").insert({
+                result = supabase.table("csoportok").insert({
                     "nev": uj_csoport.strip()
                 }).execute()
+
+                st.write(result)
 
                 st.success("Csoport létrehozva!")
 
