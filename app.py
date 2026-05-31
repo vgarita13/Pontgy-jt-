@@ -159,19 +159,20 @@ if st.session_state.aktiv_csoport is None:
 
         if st.button("➕ Csoport létrehozása"):
 
-            if uj_csoport.strip():
+            uj = uj_csoport.strip()
 
-                result = supabase.table("csoportok").insert({
-                    "nev": uj_csoport.strip()
-                }).execute()
+            if uj:
 
-                st.write(result)
+                if uj in csoportok:
+                    st.error("Ez a csoport már létezik!")
+                else:
+                    supabase.table("csoportok").insert({
+                        "nev": uj
+                    }).execute()
 
-                st.success("Csoport létrehozva!")
+                    st.success("Csoport létrehozva!")
+                    st.rerun()
 
-                st.rerun()
-
-st.write(csoportok)
 
 cols = st.columns(2)
 
@@ -187,7 +188,7 @@ for i, csoport in enumerate(csoportok):
 
             st.session_state.aktiv_csoport = csoport
             st.rerun()
-
+st.stop()
 
 aktiv_csoport = st.session_state.aktiv_csoport
 
