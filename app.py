@@ -185,7 +185,7 @@ for i, csoport in enumerate(csoportok):
 
             st.session_state.aktiv_csoport = csoport
             st.rerun()
-    st.stop()
+st.stop()
 
 
 aktiv_csoport = st.session_state.aktiv_csoport
