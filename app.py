@@ -1144,6 +1144,7 @@ styled_df = (
     df.style
     .apply(szinezes, axis=1)
     .format({
+        "Pont": "{:g}",
         "Százalék": "{:.2f}%"
     })
 )
