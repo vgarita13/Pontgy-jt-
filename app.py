@@ -982,9 +982,11 @@ if admin:
 
             pont_valtozas = st.number_input(
                 "Pont",
-                min_value=1,
-                max_value=100,
-                value=1,
+                min_value=0.5,
+                max_value=100.0,
+                value=0.5,
+                step=0.5,
+                format="%.1f",
                 key=f"input_{paros}",
                 label_visibility="collapsed"
             )
